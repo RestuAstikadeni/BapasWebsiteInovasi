@@ -1,14 +1,16 @@
-import logo from './logo.svg';
-import './App.css';
-import Home from './pages/Home'; 
-import News from './pages/News'; 
+import React from "react";
+import { Routes, Route } from "react-router-dom";
+import BaseLayout from "./components/layout/BaseLayout";
+import Home from "./pages/Home";
+import News from "./pages/News";
 
-function App() {
+export default function App() {
   return (
-    <div className="App">
-      <News />
-    </div>
+    <BaseLayout>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/news" element={<News />} />
+      </Routes>
+    </BaseLayout>
   );
 }
-
-export default App;
