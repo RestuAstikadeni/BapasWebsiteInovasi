@@ -1,5 +1,6 @@
 @tailwind base;
 @tailwind components;
+<<<<<<< HEAD
 @tailwind utilities;
 
 body {
@@ -15,3 +16,6 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+=======
+@tailwind utilities;
+>>>>>>> cc3efcc2c305c398ce2028bf28249e3a99f5e088

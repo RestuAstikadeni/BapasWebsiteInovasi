@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { useState } from 'react';
 import './App.css';
 import Home from './pages/Home';
@@ -37,7 +38,21 @@ function App() {
         {page === 'profile' ? <Profile /> : page === 'service' ? <Service /> : <Home />}
       </main>
     </div>
+=======
+import React from "react";
+import { Routes, Route } from "react-router-dom";
+import BaseLayout from "./components/layout/BaseLayout";
+import Home from "./pages/Home";
+import News from "./pages/News";
+
+export default function App() {
+  return (
+    <BaseLayout>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/news" element={<News />} />
+      </Routes>
+    </BaseLayout>
+>>>>>>> cc3efcc2c305c398ce2028bf28249e3a99f5e088
   );
 }
-
-export default App;
