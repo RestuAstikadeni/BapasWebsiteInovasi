@@ -3,13 +3,6 @@ import { Link } from "react-router-dom";
 
 export default function Home() {
   return (
-<<<<<<< HEAD
-    <div className="home">
-      <h1>Selamat Datang di BAPAS Website Inovasi</h1>
-          <p>Temukan berbagai inovasi terbaru dan informasi menarik seputar BAPAS di sini.</p>
-          <h1>COMING SOON awdawd</h1>
-    </div>
-=======
     <section className="flex min-h-[75vh] flex-col items-center justify-center rounded-2xl bg-white px-6 py-16 text-center shadow-sm ring-1 ring-slate-200">
       <span className="mb-4 rounded-full bg-blue-100 px-4 py-1 text-sm font-semibold text-blue-700">
         Website Inovasi
@@ -44,6 +37,5 @@ export default function Home() {
         COMING SOON
       </div>
     </section>
->>>>>>> cc3efcc2c305c398ce2028bf28249e3a99f5e088
   );
 }
