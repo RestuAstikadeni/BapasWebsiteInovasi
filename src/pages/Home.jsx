@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import HomeImage from "../assets/images/home-background.jpg";
 import { newsList } from "../data/newsData";
 
-import ServiceImage1 from "../assets/images/service-1.png";
+import WajibLaporImg from "../assets/images/wajib-lapor.png";
 import ServiceImage2 from "../assets/images/service-2.png";
 import ServiceImage3 from "../assets/images/service-3.png";
 import ServiceImage4 from "../assets/images/service-4.png";
@@ -21,28 +21,13 @@ import Album6 from "../assets/images/news/news-6.jpg";
 const services = [
   {
     title: "Wajib Lapor",
-    image: ServiceImage1,
+    image: WajibLaporImg,
     link: "https://forms.gle/7WtrwykWPH4j3YzL8",
   },
   {
-    title: "Pendampingan",
+    title: "Pengaduan",
     image: ServiceImage2,
-    link: "/services/pendampingan",
-  },
-  {
-    title: "Pengawasan",
-    image: ServiceImage3,
-    link: "/services/pengawasan",
-  },
-  {
-    title: "Litmas",
-    image: ServiceImage4,
-    link: "/services/litmas",
-  },
-  {
-    title: "Informasi Layanan",
-    image: ServiceImage5,
-    link: "/services/informasi-layanan",
+    link: "/services/pengaduan",
   },
 ];
 
@@ -151,7 +136,7 @@ export default function Home() {
                   <img
                     src={service.image}
                     alt={service.title}
-                    className="h-full w-full object-contain"
+                    className="h-full w-full scale-125 object-contain"
                   />
                 </div>
 
@@ -172,7 +157,7 @@ export default function Home() {
         viewport={{ once: true, amount: 0.2 }}
         variants={fadeUp}
       >
-        <div className="mb-8 text-center">
+        <div className="mb-10 text-center">
           <h2 className="text-[2rem] font-bold leading-tight text-primary sm:text-[2.5rem]">
             BERITA TERBARU
           </h2>
@@ -182,7 +167,7 @@ export default function Home() {
           </p>
         </div>
 
-        <div className="grid gap-x-10 gap-y-9 lg:grid-cols-2">
+        <div className="mx-auto grid max-w-7xl grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {newsList.slice(0, 6).map((item, index) => (
             <motion.article
               key={item.id}
@@ -194,24 +179,10 @@ export default function Home() {
                 delay: index * 0.12,
                 ease: "easeOut",
               }}
+              className="group overflow-hidden rounded-2xl bg-white shadow-md transition duration-300 hover:-translate-y-2 hover:shadow-xl"
             >
-              <Link
-                to={`/news/${item.id}`}
-                className="mb-2 block text-xl font-bold leading-tight text-primary transition hover:text-secondary md:text-2xl"
-              >
-                {item.title}
-              </Link>
-
-              <div className="mb-3 flex flex-wrap items-center gap-x-4 gap-y-1 bg-slate-100 px-2 py-1 text-sm text-primary-hover">
-                <span>📅 {item.date}</span>
-                <span>🗂️ {item.category}</span>
-              </div>
-
-              <Link
-                to={`/news/${item.id}`}
-                className="group grid gap-5 sm:grid-cols-[300px_1fr]"
-              >
-                <div className="h-[200px] w-full overflow-hidden border border-slate-300 bg-slate-100">
+              <Link to={`/news/${item.id}`} className="block">
+                <div className="h-56 w-full overflow-hidden bg-slate-100">
                   {getNewsImage(item) ? (
                     <img
                       src={getNewsImage(item)}
@@ -225,9 +196,24 @@ export default function Home() {
                   )}
                 </div>
 
-                <p className="self-center text-[15px] leading-relaxed text-primary-hover">
-                  {item.description}
-                </p>
+                <div className="p-5">
+                  <div className="mb-3 flex flex-wrap items-center gap-x-3 gap-y-1 text-xs font-medium text-primary-hover">
+                    <span>📅 {item.date}</span>
+                    <span>🗂️ {item.category}</span>
+                  </div>
+
+                  <h3 className="line-clamp-2 text-lg font-bold leading-snug text-primary transition group-hover:text-secondary md:text-xl">
+                    {item.title}
+                  </h3>
+
+                  <p className="mt-3 line-clamp-3 text-sm leading-relaxed text-primary-hover">
+                    {item.description}
+                  </p>
+
+                  <div className="mt-5 inline-flex text-sm font-semibold text-secondary transition group-hover:text-primary">
+                    Baca Selengkapnya
+                  </div>
+                </div>
               </Link>
             </motion.article>
           ))}
@@ -242,7 +228,7 @@ export default function Home() {
           </Link>
         </div>
       </motion.section>
-
+      
       {/* ================= ALBUM SECTION ================= */}
       <motion.section
         className="bg-secondary px-4 py-16 sm:px-6 md:px-16 md:py-20"

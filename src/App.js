@@ -8,10 +8,12 @@ import Profile from "./pages/Profile";
 import Service from "./pages/Service";
 import Organization from "./pages/Organization";
 import Album from "./pages/Album";
+import ScrollToTop from "./components/ScrollToTop";
 
 export default function App() {
   return (
     <BaseLayout>
+      <ScrollToTop /> 
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/news" element={<News />} />

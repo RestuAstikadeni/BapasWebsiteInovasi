@@ -135,7 +135,7 @@ export default function Navbar() {
                   <button
                     type="button"
                     onClick={() => navigate(item.path)}
-                    className={`rounded-lg px-4 py-2 text-base font-medium transition xl:px-6 xl:text-sm ${
+                    className={`rounded-lg px-4 py-2 text-base font-medium transition xl:px-6 xl:text-[1.05rem] ${
                       active
                         ? "bg-navy text-white"
                         : "text-navy-dark hover:bg-slate-100 hover:text-slate-900"
