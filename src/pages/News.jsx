@@ -14,7 +14,7 @@ const fadeUp = {
 export default function News() {
   return (
     <main className="w-full min-h-screen bg-slate-50">
-      <section className="w-full py-10">
+      <section className="w-full py-4">
         <motion.div
           className="mx-auto mb-12 max-w-3xl text-center"
           initial="hidden"

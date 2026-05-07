@@ -54,7 +54,7 @@ export default function Profile() {
     <div className="min-h-screen bg-slate-50 font-sans">
       <section
         id="profile"
-        className="w-full px-4 py-8 sm:px-6 lg:px-8 lg:py-8"
+        className="w-full px-4 py-4 sm:px-6 lg:px-8 lg:py-4"
       >
         <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
           <div>
@@ -159,7 +159,7 @@ export default function Profile() {
         </div>
       </section>
 
-      <section id="visi-misi" className="bg-navy py-10 text-white">
+      <section id="visi-misi" className="bg-navy py-10 text-white rounded-3xl">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mb-6 text-center">
             <h2 className="mb-4 text-3xl font-bold md:text-4xl">Visi & Misi</h2>
@@ -274,7 +274,7 @@ export default function Profile() {
         </div>
       </section>
 
-      <section id="program-sasaran" className="bg-white py-10">
+      <section id="program-sasaran" className="bg-white py-10 rounded-3xl">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mb-10 text-center">
             <h2 className="mb-4 text-3xl font-bold text-slate-900">

@@ -5,10 +5,9 @@ import HomeImage from "../assets/images/home-background.jpg";
 import { newsList } from "../data/newsData";
 
 import WajibLaporImg from "../assets/images/wajib-lapor.png";
-import ServiceImage2 from "../assets/images/service-2.png";
-import ServiceImage3 from "../assets/images/service-3.png";
-import ServiceImage4 from "../assets/images/service-4.png";
-import ServiceImage5 from "../assets/images/service-5.png";
+import PermohonanIzinImg from "../assets/images/permohonan-izin.png";
+import PencabutanIntegrasiImg from "../assets/images/pencabutan-integrasi.png";
+import LaporanPengaduanImg from "../assets/images/laporan-pengaduan.png";
 
 
 import Album1 from "../assets/images/news/news-1.jpg";
@@ -25,8 +24,18 @@ const services = [
     link: "https://forms.gle/7WtrwykWPH4j3YzL8",
   },
   {
+    title: "Permohonan Izin ",
+    image: PermohonanIzinImg,
+    link: "/services/permohonan-izin",
+  },
+  {
+    title: "Pencabutan Integarasi",
+    image: PencabutanIntegrasiImg,
+    link: "/services/pencabutan-integarasi",
+  },
+  {
     title: "Pengaduan",
-    image: ServiceImage2,
+    image: LaporanPengaduanImg,
     link: "/services/pengaduan",
   },
 ];
@@ -51,6 +60,7 @@ const fadeUp = {
 
 const getNewsImage = (news) => {
   return news.image || news.images?.[0] || "";
+  
 };
 
 export default function Home() {
@@ -94,7 +104,7 @@ export default function Home() {
             <div className="mt-6">
               <Link
                 to="/news"
-                className="inline-flex rounded-lg bg-secondary px-5 py-3 text-sm font-semibold text-white transition hover:bg-primary-hover"
+                className="inline-flex rounded-lg bg-navy px-5 py-3 text-sm font-semibold text-white transition hover:bg-primary-hover"
               >
                 Lihat Berita
               </Link>
@@ -115,7 +125,7 @@ export default function Home() {
           LAYANAN KAMI
         </div>
 
-        <div className="grid grid-cols-2 gap-8 sm:grid-cols-3 lg:grid-cols-5">
+        <div className={`items-center align-middle grid gap-2 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4`}>
           {services.map((service, index) => (
             <motion.div
               key={service.title}
@@ -132,11 +142,11 @@ export default function Home() {
                 to={service.link}
                 className="group flex flex-col items-center text-center"
               >
-                <div className="flex h-32 w-32 items-center justify-center rounded-xl bg-navy p-5 shadow-sm transition duration-300 group-hover:-translate-y-2 group-hover:shadow-lg sm:h-36 sm:w-36 md:h-40 md:w-40">
+                <div className="flex h-32 w-32 items-center justify-center rounded-xl border border-navy p-5 shadow-sm transition duration-300 group-hover:-translate-y-2 group-hover:shadow-lg sm:h-36 sm:w-36 md:h-40 md:w-40">
                   <img
                     src={service.image}
                     alt={service.title}
-                    className="h-full w-full scale-125 object-contain"
+                    className="h-full w-full scale-125 full object-contain transition duration-300 group-hover:scale-110"
                   />
                 </div>
 
@@ -228,16 +238,16 @@ export default function Home() {
           </Link>
         </div>
       </motion.section>
-      
+
       {/* ================= ALBUM SECTION ================= */}
       <motion.section
-        className="bg-secondary px-4 py-16 sm:px-6 md:px-16 md:py-20"
+        className="rounded-3xl bg-navy px-4 py-16 sm:px-6 md:px-16 md:py-20"
         initial="hidden"
         whileInView="show"
         viewport={{ once: true, amount: 0.2 }}
         variants={fadeUp}
       >
-        <h2 className="mb-10 text-center text-3xl font-bold text-primary">
+        <h2 className="mb-10 text-center text-3xl font-bold text-primary text-white">
           Galeri Foto
         </h2>
 

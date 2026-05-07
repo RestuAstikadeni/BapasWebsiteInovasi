@@ -7,13 +7,13 @@ export default function Organization() {
       nama: "Nama Kepala Bapas",
       jabatan: "Kepala Bapas Kelas I Mataram",
       kategori: "Pejabat Struktural",
-      image: "/images/pegawai/kepala-bapas.jpg",
+      image: "/images/pegawai/kepala-bapas.png",
     },
     {
       nama: "Nama Pejabat",
       jabatan: "Kepala Sub Bagian Tata Usaha",
       kategori: "Pejabat Struktural",
-      image: "/images/pegawai/kasubag-tu.jpg",
+      image: "/images/pegawai/kasubag-tu.png",
     },
     {
       nama: "Nama Pejabat",

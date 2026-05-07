@@ -8,6 +8,7 @@ import Profile from "./pages/Profile";
 import Service from "./pages/Service";
 import Organization from "./pages/Organization";
 import Album from "./pages/Album";
+import Admin from "./pages/Admin";
 import ScrollToTop from "./components/ScrollToTop";
 
 export default function App() {
@@ -22,6 +23,7 @@ export default function App() {
         <Route path="/services" element={<Service />} />
         <Route path="/organization" element={<Organization />} />
         <Route path="/album" element={<Album />} />
+        <Route path="/admin" element={<Admin />} />
       </Routes>
     </BaseLayout>
   );

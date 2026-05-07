@@ -39,6 +39,10 @@ export default function Navbar() {
         { title: "Pengawasan", path: "/services/pengawasan" },
       ],
     },
+    {
+      title: "Admin",
+      path: "/admin",
+    },
   ];
 
   const closeMenu = () => {
