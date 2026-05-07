@@ -11,6 +11,11 @@ import Album from "./pages/Album";
 import Admin from "./pages/Admin";
 import ScrollToTop from "./components/ScrollToTop";
 
+function App() {
+  return <Home />;
+}
+
+
 export default function App() {
   return (
     <BaseLayout>
