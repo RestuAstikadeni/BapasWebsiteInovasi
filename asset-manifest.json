@@ -1,11 +1,14 @@
 {
   "files": {
-    "main.css": "/BapasWebsiteInovasi/static/css/main.a1855931.css",
-    "main.js": "/BapasWebsiteInovasi/static/js/main.7bd72e14.js",
+    "main.css": "/BapasWebsiteInovasi/static/css/main.516ea1dd.css",
+    "main.js": "/BapasWebsiteInovasi/static/js/main.e711384b.js",
     "static/media/home-background.jpg": "/BapasWebsiteInovasi/static/media/home-background.0e54d6dd44df8120fa72.jpg",
     "static/media/news-52.jpg": "/BapasWebsiteInovasi/static/media/news-52.2036f676032530b8fbbe.jpg",
+    "static/media/album-1.jpg": "/BapasWebsiteInovasi/static/media/album-1.cfac66eb2cf36d0caeba.jpg",
+    "static/media/default.jpg": "/BapasWebsiteInovasi/static/media/default.cfac66eb2cf36d0caeba.jpg",
     "static/media/news-1.jpg": "/BapasWebsiteInovasi/static/media/news-1.cfac66eb2cf36d0caeba.jpg",
     "static/media/struktur-organisasi.png": "/BapasWebsiteInovasi/static/media/struktur-organisasi.2e0acdc0b12dcdc0f11f.png",
+    "static/media/album-5.jpg": "/BapasWebsiteInovasi/static/media/album-5.06af1fe5128c46055afc.jpg",
     "static/media/news-5.jpg": "/BapasWebsiteInovasi/static/media/news-5.06af1fe5128c46055afc.jpg",
     "static/media/news-42.jpg": "/BapasWebsiteInovasi/static/media/news-42.0fb4e63c5d517ce11ee6.jpg",
     "static/media/news-32.jpg": "/BapasWebsiteInovasi/static/media/news-32.6af701f1044d24d12b79.jpg",
@@ -13,22 +16,28 @@
     "static/media/service-banner.jpg": "/BapasWebsiteInovasi/static/media/service-banner.fe3dddbc7acd5a22ca30.jpg",
     "static/media/laporan-pengaduan.png": "/BapasWebsiteInovasi/static/media/laporan-pengaduan.a652e6afff647ed604c2.png",
     "static/media/permohonan-izin.png": "/BapasWebsiteInovasi/static/media/permohonan-izin.7b85c8bca3119b8d8341.png",
+    "static/media/album-6.jpg": "/BapasWebsiteInovasi/static/media/album-6.f234c01f35360bd36e17.jpg",
     "static/media/news-6.jpg": "/BapasWebsiteInovasi/static/media/news-6.f234c01f35360bd36e17.jpg",
+    "static/media/album-4.jpg": "/BapasWebsiteInovasi/static/media/album-4.916335dd5841330efcc1.jpg",
     "static/media/news-4.jpg": "/BapasWebsiteInovasi/static/media/news-4.916335dd5841330efcc1.jpg",
     "static/media/pencabutan-integrasi.png": "/BapasWebsiteInovasi/static/media/pencabutan-integrasi.b99edf502b71c1d8e23c.png",
     "static/media/logo-imipas.png": "/BapasWebsiteInovasi/static/media/logo-imipas.963bcb2dc6ce7ba3b49e.png",
     "static/media/logo-pas.png": "/BapasWebsiteInovasi/static/media/logo-pas.b27f697a78d18a1362dd.png",
     "static/media/news-62.jpg": "/BapasWebsiteInovasi/static/media/news-62.4e5af9e087e8a2d7922d.jpg",
+    "static/media/album-3.jpg": "/BapasWebsiteInovasi/static/media/album-3.d1d76a2a3ac55ca38c34.jpg",
     "static/media/news-3.jpg": "/BapasWebsiteInovasi/static/media/news-3.d1d76a2a3ac55ca38c34.jpg",
+    "static/media/album-2.jpg": "/BapasWebsiteInovasi/static/media/album-2.3b2144d0a84bc852ac7d.jpg",
     "static/media/news-2.jpg": "/BapasWebsiteInovasi/static/media/news-2.3b2144d0a84bc852ac7d.jpg",
+    "static/media/album-7.jpg": "/BapasWebsiteInovasi/static/media/album-7.b16e164384b95fe86414.jpg",
     "static/media/news-12.jpg": "/BapasWebsiteInovasi/static/media/news-12.b16e164384b95fe86414.jpg",
+    "static/media/album-8.jpg": "/BapasWebsiteInovasi/static/media/album-8.be5ff4dfd702acc89d57.jpg",
     "static/media/news-22.jpg": "/BapasWebsiteInovasi/static/media/news-22.be5ff4dfd702acc89d57.jpg",
     "index.html": "/BapasWebsiteInovasi/index.html",
-    "main.a1855931.css.map": "/BapasWebsiteInovasi/static/css/main.a1855931.css.map",
-    "main.7bd72e14.js.map": "/BapasWebsiteInovasi/static/js/main.7bd72e14.js.map"
+    "main.516ea1dd.css.map": "/BapasWebsiteInovasi/static/css/main.516ea1dd.css.map",
+    "main.e711384b.js.map": "/BapasWebsiteInovasi/static/js/main.e711384b.js.map"
   },
   "entrypoints": [
-    "static/css/main.a1855931.css",
-    "static/js/main.7bd72e14.js"
+    "static/css/main.516ea1dd.css",
+    "static/js/main.e711384b.js"
   ]
 }
