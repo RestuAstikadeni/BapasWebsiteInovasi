@@ -1,15 +1,17 @@
 import React from "react";
 import ServiceBanner from "../assets/images/service-banner.jpg";
+import { Link } from "react-router-dom";
 
 export default function Service() {
   const services = [
     {
       id: 1,
-      title: "Pelayanan Pembuatan Litmas Anak",
+      title: "Pelayanan Anak",
       description:
-        "Layanan penyusunan Penelitian Kemasyarakatan (Litmas) Anak untuk kebutuhan proses peradilan, diversi, pembinaan, dan rekomendasi hukum.",
-      icon: "📄",
+        "Layanan terpadu meliputi pembuatan Litmas Anak, konseling klien anak, dan bimbingan klien anak untuk mendukung proses pembinaan, pendampingan, dan reintegrasi sosial Anak yang Berhadapan dengan Hukum (ABH).",
+      icon: "🧒",
       color: "bg-blue-50 border-blue-100 text-blue-600",
+      link: "/layanan/litmas-anak",
     },
     {
       id: 2,
@@ -61,22 +63,6 @@ export default function Service() {
     },
     {
       id: 8,
-      title: "Pelayanan Konseling Klien Anak",
-      description:
-        "Layanan konseling dan pembinaan psikososial bagi klien anak guna mendukung reintegrasi sosial yang positif.",
-      icon: "💬",
-      color: "bg-yellow-50 border-yellow-100 text-yellow-600",
-    },
-    {
-      id: 9,
-      title: "Pelayanan Bimbingan Klien Anak",
-      description:
-        "Pelaksanaan program pembimbingan dan pengawasan terhadap klien anak selama menjalani masa integrasi.",
-      icon: "🧒",
-      color: "bg-lime-50 border-lime-100 text-lime-600",
-    },
-    {
-      id: 10,
       title: "Pelayanan Pencabutan Integrasi Klien Pemasyarakatan",
       description:
         "Penanganan administrasi pencabutan program integrasi bagi klien yang melakukan pelanggaran atau tidak memenuhi ketentuan.",
@@ -152,7 +138,10 @@ export default function Service() {
       </section>
 
       {/* SERVICES */}
-      <main className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+      <section
+        id="services-list"
+        className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8"
+      >
         <div className="mb-8 text-center">
           <h2 className="text-3xl font-bold text-slate-900">Daftar Layanan</h2>
 
@@ -166,7 +155,8 @@ export default function Service() {
 
         <div className="grid gap-8 md:grid-cols-2 xl:grid-cols-3">
           {services.map((service) => (
-            <div
+            <Link
+              to={service.link}
               key={service.id}
               className="group flex h-full flex-col rounded-3xl border border-slate-200 bg-white p-7 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-xl"
             >
@@ -187,10 +177,10 @@ export default function Service() {
               <div className="mt-auto inline-flex w-fit items-center rounded-full bg-green-100 px-4 py-1.5 text-sm font-semibold text-green-700">
                 Gratis
               </div>
-            </div>
+            </Link>
           ))}
         </div>
-      </main>
+      </section>
 
       {/* MAKLUMAT */}
       <section className="bg-blue-950 py-16 text-white rounded-3xl">
@@ -241,7 +231,6 @@ export default function Service() {
           </div>
         </div>
       </section>
-
     </div>
   );
 }

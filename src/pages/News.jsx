@@ -25,7 +25,7 @@ export default function News() {
           <h1 className="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl md:text-5xl">
             INDEKS BERITA
           </h1>
-
+          <div className="mx-auto mt-6 h-1 w-24 rounded-full bg-amber-500" />
           <p className="mt-4 text-base leading-7 text-slate-600">
             Kumpulan berita, informasi, kegiatan, dan pembaruan terbaru dari
             BAPAS.

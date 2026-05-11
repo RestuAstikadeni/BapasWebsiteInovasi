@@ -54,11 +54,11 @@ export default function Profile() {
     <div className="min-h-screen bg-slate-50 font-sans">
       <section
         id="profile"
-        className="w-full px-4 py-4 sm:px-6 lg:px-8 lg:py-4"
+        className="w-full px-4 py-4 sm:px-6 lg:px-8 lg:py-4 mb-20"
       >
         <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
           <div>
-            <h3 className="mb-2 text-sm font-bold uppercase tracking-wider text-amber-500">
+            <h3 className="mb-2 text-sm  font-bold uppercase tracking-wider text-amber-500">
               Tentang Bapas Mataram
             </h3>
 
@@ -66,7 +66,7 @@ export default function Profile() {
               Apa itu Bapas Kelas I Mataram?
             </h2>
 
-            <p className="mb-5 leading-relaxed text-slate-600">
+            <p className="mb-5 text-[14px] leading-relaxed text-slate-600 sm:text-xs md:text-sm">
               Balai Pemasyarakatan (BAPAS) Kelas I Mataram merupakan Unit
               Pelaksana Teknis di bawah naungan Kementerian Imigrasi dan
               Pemasyarakatan Republik Indonesia yang memiliki peran strategis
@@ -75,7 +75,7 @@ export default function Profile() {
               kemasyarakatan terhadap Klien Pemasyarakatan.
             </p>
 
-            <p className="mb-5 leading-relaxed text-slate-600">
+            <p className="mb-5 text-[14px] leading-relaxed text-slate-600 sm:text-xs md:text-sm">
               Secara historis, BAPAS berawal dari lembaga yang dikenal dengan
               nama Balai Bimbingan Kemasyarakatan dan Pengentasan Anak atau
               Balai BISPA. BISPA Mataram berdiri pada tahun 1981 dan kini telah
@@ -84,7 +84,7 @@ export default function Profile() {
               Kecamatan Sekarbela, Kota Mataram, Nusa Tenggara Barat.
             </p>
 
-            <p className="mb-5 leading-relaxed text-slate-600">
+            <p className="mb-5 text-[14px] leading-relaxed text-slate-600 sm:text-xs md:text-sm">
               Dalam sistem peradilan pidana terpadu, BAPAS memiliki peran
               penting dalam mendukung penerapan keadilan restoratif. BAPAS tidak
               berfungsi sebagai lembaga pemidanaan, melainkan sebagai institusi
@@ -93,7 +93,7 @@ export default function Profile() {
               masyarakat.
             </p>
 
-            <p className="mb-5 leading-relaxed text-slate-600">
+            <p className="mb-5 text-[14px] leading-relaxed text-slate-600 sm:text-xs md:text-sm">
               Melalui Pembimbing Kemasyarakatan, BAPAS hadir dalam berbagai
               tahapan proses hukum, mulai dari penyusunan Penelitian
               Kemasyarakatan (Litmas), pendampingan Anak yang Berhadapan dengan
@@ -101,15 +101,6 @@ export default function Profile() {
               terhadap klien yang menjalani program reintegrasi sosial seperti
               Pembebasan Bersyarat, Cuti Bersyarat, Cuti Menjelang Bebas, dan
               Asimilasi.
-            </p>
-
-            <p className="mb-8 leading-relaxed text-slate-600">
-              BAPAS Kelas I Mataram juga terus membangun sinergi dengan aparat
-              penegak hukum, pemerintah daerah, lembaga sosial, kelompok
-              masyarakat, dan berbagai mitra strategis lainnya. Kolaborasi ini
-              menjadi bagian penting dalam mendukung keberhasilan reintegrasi
-              sosial, mengurangi stigma terhadap klien pemasyarakatan, serta
-              mencegah pengulangan tindak pidana di tengah masyarakat.
             </p>
 
             <div className="grid grid-cols-2 gap-4 border-t border-slate-200 pt-8 sm:grid-cols-4">
@@ -125,36 +116,42 @@ export default function Profile() {
           </div>
 
           <div className="relative">
-            <div className="overflow-hidden rounded-3xl bg-navy p-8 text-white shadow-2xl">
+            <div className="overflow-hidden rounded-2xl bg-navy p-4 text-white shadow-2xl sm:rounded-3xl sm:p-8">
+              {/* Gambar utama */}
               <img
                 src={OfficeImg}
                 alt="Kantor Bapas Kelas I Mataram"
-                className="mb-6 h-72 w-full rounded-2xl object-cover"
+                className="mb-4 h-48 w-full rounded-2xl object-cover sm:mb-6 sm:h-72"
               />
-              <div className="grid grid-cols-2 gap-4">
+
+              {/* Grid gambar kecil */}
+              <div className="grid grid-cols-2 gap-3 sm:gap-4">
                 <img
                   src={OfficeImg}
                   alt="Kantor Bapas Kelas I Mataram"
-                  className="mb-6 h-64 w-full rounded-2xl object-cover"
+                  className="h-32 w-full rounded-xl object-cover sm:h-64 sm:rounded-2xl"
                 />
+
                 <img
                   src={OfficeImg}
                   alt="Kantor Bapas Kelas I Mataram"
-                  className="mb-6 h-64 w-full rounded-2xl object-cover"
+                  className="h-32 w-full rounded-xl object-cover sm:h-64 sm:rounded-2xl"
                 />
               </div>
 
-              <h4 className="mb-3 text-2xl font-bold">
+              {/* Text */}
+              <h4 className="mt-5 mb-2 text-xl font-bold leading-tight sm:mt-6 sm:mb-3 sm:text-2xl">
                 Kantor Bapas Kelas I Mataram
               </h4>
 
-              <p className="leading-relaxed text-blue-100">
+              <p className="text-sm leading-relaxed text-blue-100 sm:text-base">
                 Jalan Kokok Segara No.06, Kelurahan Kekalik Jaya, Kecamatan
                 Sekarbela, Kota Mataram, Nusa Tenggara Barat 83116.
               </p>
             </div>
 
-            <div className="absolute -bottom-6 -left-6 -z-10 h-48 w-48 rounded-3xl bg-amber-400 opacity-50 blur-2xl" />
+            {/* Blur background */}
+            <div className="absolute -bottom-4 -left-4 -z-10 h-32 w-32 rounded-3xl bg-amber-400 opacity-50 blur-2xl sm:-bottom-6 sm:-left-6 sm:h-48 sm:w-48" />
           </div>
         </div>
       </section>
@@ -306,33 +303,29 @@ export default function Profile() {
         </div>
       </section>
 
-      <section
-        id="struktur-organisasi"
-        className="bg-slate-50 px-4 py-20 sm:px-6 lg:px-8"
-      >
-        <div className="mx-auto max-w-7xl">
-          <div className="mb-12 text-center">
+      <section id="struktur-organisasi" className="py-10 rounded-3xl">
+        <div className="mx-auto w-full">
+          <div className="mb-6 text-center">
             <h2 className="mb-4 text-3xl font-bold text-slate-900 md:text-4xl">
               Struktur Organisasi
             </h2>
             <div className="mx-auto mt-6 h-1 w-24 rounded-full bg-amber-500" />
           </div>
 
-          <div className="overflow-hidden rounded-3xl border border-slate-200 bg-white p-4 shadow-sm md:p-6">
+          <div className="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm">
             <img
               src={StrukturOrganisasiImg}
               alt="Struktur Organisasi Bapas Kelas I Mataram"
               className="h-auto w-full rounded-2xl object-contain"
             />
-          </div>
-
-          <div className="mt-10 flex justify-center">
-            <Link
-              to="/organization"
-              className="inline-flex items-center justify-center rounded-full bg-primary px-8 py-3 text-sm font-bold text-white shadow-md transition hover:bg-primary-hover hover:shadow-lg"
-            >
-              Selengkapnya
-            </Link>
+            <div className="my-4 flex justify-center">
+              <Link
+                to="/organization"
+                className="inline-flex items-center justify-center rounded-full bg-primary px-8 py-3 text-sm font-bold text-white shadow-md transition hover:bg-primary-hover hover:shadow-lg"
+              >
+                Selengkapnya
+              </Link>
+            </div>
           </div>
         </div>
       </section>

@@ -1,9 +1,16 @@
 import React from "react";
+import { useLocation } from "react-router-dom";
 import Navbar from "../ui/Navbar";
 import Footer from "../ui/Footer";
 import Header from "../ui/TopBar";
 
 export default function BaseLayout({ children }) {
+  const location = useLocation();
+
+  const hideFooterRoutes = ["/adminlogin", "/admindashboard"];
+
+  const hideFooter = hideFooterRoutes.includes(location.pathname);
+
   return (
     <div className="min-h-screen bg-background">
       <Header />
@@ -13,7 +20,7 @@ export default function BaseLayout({ children }) {
         {children}
       </main>
 
-      <Footer />
+      {!hideFooter && <Footer />}
     </div>
   );
 }

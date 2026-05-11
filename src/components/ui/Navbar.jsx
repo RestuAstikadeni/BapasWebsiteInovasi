@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import { User } from "lucide-react";
 import ImipasLogo from "../../assets/images/logo-imipas.png";
 import PasLogo from "../../assets/images/logo-pas.png";
 
@@ -33,15 +34,12 @@ export default function Navbar() {
     {
       title: "Layanan",
       path: "/services",
-      children: [
-        { title: "Layanan Bapas", path: "/services" },
-        { title: "Pembimbingan", path: "/services/pembimbingan" },
-        { title: "Pengawasan", path: "/services/pengawasan" },
-      ],
+      children: [{ title: "Daftar Layanan", section: "services-list" }],
     },
     {
       title: "Admin",
-      path: "/admin",
+      path: "/adminlogin",
+      icon: <User size={20} />,
     },
   ];
 
@@ -64,15 +62,12 @@ export default function Navbar() {
   const handleChildClick = (child, parentPath) => {
     closeMenu();
 
-    // Kalau child punya path, maka langsung route ke halaman tersebut
     if (child.path) {
       navigate(child.path);
       return;
     }
 
-    // Kalau child punya section, maka scroll ke section
     if (child.section) {
-      // Kalau sedang tidak berada di halaman parent, route dulu ke parent page
       if (location.pathname !== parentPath) {
         navigate(parentPath);
 
@@ -83,7 +78,6 @@ export default function Navbar() {
         return;
       }
 
-      // Kalau sudah berada di halaman parent, langsung scroll
       scrollToSection(child.section);
     }
   };
@@ -170,13 +164,13 @@ export default function Navbar() {
               <Link
                 key={item.title}
                 to={item.path}
-                className={`rounded-lg px-4 py-2 text-base font-medium transition xl:px-6 xl:text-lg ${
+                className={`rounded-full p-2 transition ${
                   active
                     ? "bg-navy text-white"
                     : "text-navy-dark hover:bg-slate-100 hover:text-slate-900"
                 }`}
               >
-                {item.title}
+                {item.icon ? item.icon : item.title}
               </Link>
             );
           })}
@@ -205,13 +199,13 @@ export default function Navbar() {
                   <Link
                     to={item.path}
                     onClick={closeMenu}
-                    className={`block rounded-lg px-4 py-3 text-sm font-medium transition ${
+                    className={`flex items-center gap-2 rounded-lg px-4 py-3 text-sm font-medium transition ${
                       active
                         ? "bg-navy text-white"
                         : "text-navy-dark hover:bg-slate-100"
                     }`}
                   >
-                    {item.title}
+                    {item.icon ? item.icon : item.title}
                   </Link>
 
                   {item.children && (

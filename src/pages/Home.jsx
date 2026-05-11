@@ -24,19 +24,9 @@ const services = [
     link: "https://forms.gle/7WtrwykWPH4j3YzL8",
   },
   {
-    title: "Permohonan Izin ",
-    image: PermohonanIzinImg,
-    link: "/services/permohonan-izin",
-  },
-  {
-    title: "Pencabutan Integarasi",
-    image: PencabutanIntegrasiImg,
-    link: "/services/pencabutan-integarasi",
-  },
-  {
     title: "Pengaduan",
     image: LaporanPengaduanImg,
-    link: "/services/pengaduan",
+    link: "https://forms.gle/DMLAtwaWUWyVQ7oH9",
   },
 ];
 
@@ -67,7 +57,7 @@ export default function Home() {
   return (
     <div className="w-full space-y-10 bg-background text-primary md:space-y-20">
       {/* ================= WELCOME SECTION ================= */}
-      <section className="relative h-[70vh] min-h-[520px] overflow-hidden rounded-xl md:h-[80vh] md:rounded-2xl">
+      <section className="relative h-[45vh] min-h-[360px] overflow-hidden rounded-xl sm:h-[55vh] md:h-[80vh] md:min-h-[520px] md:rounded-2xl">
         <motion.img
           src={HomeImage}
           alt="Background"
@@ -80,33 +70,30 @@ export default function Home() {
         <div className="absolute inset-0 bg-primary/70" />
 
         <motion.div
-          className="relative z-10 flex h-full w-full items-end px-5 py-12 sm:px-8 sm:py-16 md:px-16 md:py-20"
+          className="relative z-10 flex h-full w-full items-end px-4 py-6 sm:px-6 sm:py-8 md:px-10 md:py-10"
           initial="hidden"
           animate="show"
           variants={fadeUp}
         >
-          <div className="w-full max-w-3xl text-white">
-            <p className="mb-3 inline-block rounded-full bg-secondary-light px-3 py-1 text-xs font-semibold text-primary sm:px-4 sm:text-sm">
-              Website Inovasi
-            </p>
-
-            <h1 className="text-4xl font-bold leading-tight sm:text-5xl md:text-[4rem]">
-              Welcome to,
+          <div className="w-full max-w-3xl space-y-4 text-white">
+            <h1 className="text-xl font-bold leading-[1.2] sm:text-4xl md:text-[3rem] md:leading-[1.1]">
+              Balai Pemasyarakatan
               <br />
-              Bapas Mataram
+              Kelas I Mataram
             </h1>
 
-            <p className="mt-4 max-w-xl text-sm leading-6 text-blueSoft-light sm:text-base md:text-[1.25rem] md:leading-7">
-              Temukan informasi, layanan, dan berita terbaru seputar Bapas
-              Mataram.
+            <p className="max-w-xl text-xs leading-6 text-blueSoft-light sm:text-sm sm:leading-5 md:text-[1rem] md:leading-6">
+              Merupakan Unit Pelaksana Teknis yang melaksanakan pembimbingan,
+              pendampingan, dan pengawasan Klien Pemasyarakatan untuk mendukung
+              reintegrasi sosial di masyarakat.
             </p>
 
-            <div className="mt-6">
+            <div className="mt-5">
               <Link
-                to="/news"
-                className="inline-flex rounded-lg bg-navy px-5 py-3 text-sm font-semibold text-white transition hover:bg-primary-hover"
+                to="/profile"
+                className="inline-flex rounded-lg bg-white px-4 py-2 text-xs font-bold text-navy transition hover:bg-slate-200 sm:px-5 sm:py-3 sm:text-sm"
               >
-                Lihat Berita
+                Selengkapnya...
               </Link>
             </div>
           </div>
@@ -121,11 +108,16 @@ export default function Home() {
         viewport={{ once: true, amount: 0.25 }}
         variants={fadeUp}
       >
-        <div className="my-8 text-center text-[2rem] font-bold leading-tight text-primary sm:text-[2.5rem] md:text-[2.5rem]">
-          LAYANAN KAMI
+        <div className="mb-10 text-center">
+          <div className="my-2 text-center text-[2rem] font-bold leading-tight text-primary sm:text-[2.5rem] md:text-[2.5rem] ">
+            LAYANAN KAMI
+          </div>
+          <div className="mx-auto h-1 w-24 rounded-full bg-amber-500 " />
         </div>
 
-        <div className={`items-center align-middle grid gap-2 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4`}>
+        <div
+          className={`items-center align-middle flex flex-wrap justify-center gap-20 md:flex`}
+        >
           {services.map((service, index) => (
             <motion.div
               key={service.title}
@@ -161,20 +153,17 @@ export default function Home() {
 
       {/* ================= BERITA SECTION ================= */}
       <motion.section
-        className="px-4 py-10 sm:px-6 md:px-16 md:py-12"
+        className="px-4 py-4 "
         initial="hidden"
         whileInView="show"
         viewport={{ once: true, amount: 0.2 }}
         variants={fadeUp}
       >
         <div className="mb-10 text-center">
-          <h2 className="text-[2rem] font-bold leading-tight text-primary sm:text-[2.5rem]">
+          <h2 className="my-2 text-center text-[2rem] font-bold leading-tight text-primary sm:text-[2.5rem]">
             BERITA TERBARU
           </h2>
-
-          <p className="mx-auto mt-3 max-w-2xl text-sm leading-6 text-primary-hover sm:text-base">
-            Informasi, kegiatan, dan pembaruan terbaru dari Bapas Mataram.
-          </p>
+          <div className="mx-auto h-1 w-24 rounded-full bg-amber-500 " />
         </div>
 
         <div className="mx-auto grid max-w-7xl grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
@@ -220,8 +209,8 @@ export default function Home() {
                     {item.description}
                   </p>
 
-                  <div className="mt-5 inline-flex text-sm font-semibold text-secondary transition group-hover:text-primary">
-                    Baca Selengkapnya
+                  <div className="mt-5 inline-flex text-sm font-bold text-secondary transition">
+                    Baca Selengkapnya...
                   </div>
                 </div>
               </Link>
@@ -232,7 +221,7 @@ export default function Home() {
         <div className="mt-10 flex justify-center">
           <Link
             to="/news"
-            className="inline-flex rounded-lg bg-primary px-6 py-3 text-sm font-semibold text-white transition hover:bg-primary-hover"
+            className="inline-flex rounded-lg bg-primary px-6 py-3 text-sm font-bold text-white transition hover:bg-primary-hover"
           >
             Lihat Semua Berita
           </Link>
@@ -241,16 +230,19 @@ export default function Home() {
 
       {/* ================= ALBUM SECTION ================= */}
       <motion.section
-        className="rounded-3xl bg-navy px-4 py-16 sm:px-6 md:px-16 md:py-20"
+        className="rounded-3xl bg-navy px-4 py-6 sm:px-6 md:px-16 md:py-10"
         initial="hidden"
         whileInView="show"
         viewport={{ once: true, amount: 0.2 }}
         variants={fadeUp}
       >
-        <h2 className="mb-10 text-center text-3xl font-bold text-primary text-white">
-          Galeri Foto
-        </h2>
-
+        \
+        <div className="mb-10 text-center">
+          <h2 className="mb-2 text-center text-3xl font-bold text-primary text-white">
+            GALERI FOTO
+          </h2>
+          <div className="mx-auto h-1 w-24 rounded-full bg-amber-500 " />
+        </div>
         <div className="mx-auto grid max-w-7xl grid-cols-2 gap-1 sm:grid-cols-3 lg:grid-cols-6">
           {albumItems.map((item, index) => (
             <motion.div
@@ -281,11 +273,10 @@ export default function Home() {
             </motion.div>
           ))}
         </div>
-
         <div className="mt-10 flex justify-center">
           <Link
             to="/album"
-            className="inline-flex rounded-lg bg-primary px-6 py-3 text-sm font-semibold text-white transition hover:bg-primary-hover"
+            className="inline-flex rounded-lg bg-white px-6 py-3 text-sm font-bold text-primary transition hover:bg-slate-200"
           >
             Lihat Album
           </Link>

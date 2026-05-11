@@ -4,34 +4,88 @@ import { Building, UserRound, Users } from "../components/ui/Icons";
 export default function Organization() {
   const pejabat = [
     {
-      nama: "Nama Kepala Bapas",
-      jabatan: "Kepala Bapas Kelas I Mataram",
+      nama: "I MADE KERTAYASA, S.Sos.",
+      nip: "196912311992031003",
+      jabatan: "Kepala Subbagian Tata Usaha",
       kategori: "Pejabat Struktural",
-      image: "/images/pegawai/kepala-bapas.png",
+      image: "/images/pegawai/kasubag-tu.jpg",
     },
     {
-      nama: "Nama Pejabat",
-      jabatan: "Kepala Sub Bagian Tata Usaha",
-      kategori: "Pejabat Struktural",
-      image: "/images/pegawai/kasubag-tu.png",
-    },
-    {
-      nama: "Nama Pejabat",
+      nama: "LEO PUTRA CAHYA, S.E",
+      nip: "199008142012101001",
       jabatan: "Kepala Urusan Kepegawaian",
       kategori: "Pejabat Struktural",
       image: "/images/pegawai/kepegawaian.jpg",
     },
     {
-      nama: "Nama Pejabat",
+      nama: "INDRIAWATI, S.H., M.M.",
+      nip: "197307231993032001",
       jabatan: "Kepala Urusan Keuangan",
       kategori: "Pejabat Struktural",
       image: "/images/pegawai/keuangan.jpg",
     },
     {
-      nama: "Nama Pejabat",
+      nama: "MASNIAR DAHLIA, S.H.",
+      nip: "198510282005012001",
       jabatan: "Kepala Urusan Umum",
       kategori: "Pejabat Struktural",
       image: "/images/pegawai/umum.jpg",
+    },
+    {
+      nama: "SELAMAT RIADI, S.H.",
+      nip: "197912312007031001",
+      jabatan: "Kepala Seksi Bimbingan Klien Dewasa",
+      kategori: "Pejabat Struktural",
+      image: "/images/pegawai/bkd.jpg",
+    },
+    {
+      nama: "ROMANIA MARIA, S.Pd.",
+      nip: "197108091992032001",
+      jabatan: "Kepala Seksi Bimbingan Klien Anak",
+      kategori: "Pejabat Struktural",
+      image: "/images/pegawai/bka.jpg",
+    },
+    {
+      nama: "RAJA ADIL ARDIANSYAH S., S.H.",
+      nip: "197812022003121002",
+      jabatan: "Kepala Subseksi Bimbingan Kemasyarakatan Klien Dewasa",
+      kategori: "Pejabat Struktural",
+      image: "/images/pegawai/sub-bkd.jpg",
+    },
+    {
+      nama: "FAOZIAH, S.H.",
+      nip: "199109212010122001",
+      jabatan: "Kepala Subseksi Registrasi Bimbingan Klien Dewasa",
+      kategori: "Pejabat Struktural",
+      image: "/images/pegawai/sub-regdewasa.jpg",
+    },
+    {
+      nama: "PURWANTO, S.H.",
+      nip: "197003251990031002",
+      jabatan: "Kepala Subseksi Bimbingan Kerja Bimbingan Klien Dewasa",
+      kategori: "Pejabat Struktural",
+      image: "/images/pegawai/sub-kerjadewasa.jpg",
+    },
+    {
+      nama: "MOH. ZAINUL AHZAN, S.Pd.I",
+      nip: "198401292010121001",
+      jabatan: "Kepala Subseksi Bimbingan Kemasyarakatan Klien Anak",
+      kategori: "Pejabat Struktural",
+      image: "/images/pegawai/sub-bka.jpg",
+    },
+    {
+      nama: "LISA FARADEBI HERNANI, S.Tr.Pas.",
+      nip: "199806082023012001",
+      jabatan: "Kepala Subseksi Registrasi Bimbingan Klien Anak",
+      kategori: "Pejabat Struktural",
+      image: "/images/pegawai/sub-reganak.jpg",
+    },
+    {
+      nama: "MA'RUF",
+      nip: "197910012001121001",
+      jabatan: "Kepala Subseksi Bimbingan Kerja Bimbingan Klien Anak",
+      kategori: "Pejabat Struktural",
+      image: "/images/pegawai/sub-kerjaanak.jpg",
     },
   ];
 
@@ -118,13 +172,13 @@ export default function Organization() {
             </p>
           </div>
 
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {pejabat.map((item, index) => (
               <div
                 key={index}
-                className="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-lg"
+                className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-xl"
               >
-                <div className="h-72 bg-slate-100">
+                <div className="h-56 bg-slate-100">
                   <img
                     src={item.image}
                     alt={item.nama}
@@ -135,17 +189,21 @@ export default function Organization() {
                   />
                 </div>
 
-                <div className="p-6">
+                <div className="p-4">
                   <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-blue-50 px-3 py-1 text-xs font-bold text-blue-700">
                     <UserRound size={14} />
                     {item.kategori}
                   </div>
 
-                  <h3 className="mb-2 text-xl font-bold text-slate-900">
+                  <h3 className="mb-1 text-base font-bold leading-snug text-slate-900">
                     {item.nama}
                   </h3>
 
-                  <p className="leading-relaxed text-slate-600">
+                  <p className="mb-2 text-sm font-medium text-blue-700">
+                    NIP. {item.nip}
+                  </p>
+
+                  <p className="text-sm leading-relaxed text-slate-600">
                     {item.jabatan}
                   </p>
                 </div>
@@ -155,49 +213,6 @@ export default function Organization() {
         </div>
       </section>
 
-      <section className="bg-white px-4 py-20 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-7xl">
-          <div className="mb-10">
-            <h2 className="mb-3 text-3xl font-bold text-slate-900">Pegawai</h2>
-            <p className="max-w-2xl text-slate-600">
-              Daftar pegawai Bapas Kelas I Mataram.
-            </p>
-          </div>
-
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {pegawai.map((item, index) => (
-              <div
-                key={index}
-                className="rounded-3xl border border-slate-200 bg-slate-50 p-5 text-center transition hover:-translate-y-1 hover:shadow-lg"
-              >
-                <div className="mx-auto mb-5 h-40 w-40 overflow-hidden rounded-full bg-slate-200">
-                  <img
-                    src={item.image}
-                    alt={item.nama}
-                    className="h-full w-full object-cover"
-                    onError={(e) => {
-                      e.currentTarget.src = "/images/pegawai/default.jpg";
-                    }}
-                  />
-                </div>
-
-                <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-amber-50 px-3 py-1 text-xs font-bold text-amber-700">
-                  <Users size={14} />
-                  {item.kategori}
-                </div>
-
-                <h3 className="mb-2 text-lg font-bold text-slate-900">
-                  {item.nama}
-                </h3>
-
-                <p className="text-sm leading-relaxed text-slate-600">
-                  {item.jabatan}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
     </main>
   );
 }
