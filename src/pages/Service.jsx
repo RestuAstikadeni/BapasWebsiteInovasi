@@ -6,31 +6,24 @@ export default function Service() {
   const services = [
     {
       id: 1,
-      title: "Pelayanan Anak",
+      title: "Pelayanan Klien Anak",
       description:
         "Layanan terpadu meliputi pembuatan Litmas Anak, konseling klien anak, dan bimbingan klien anak untuk mendukung proses pembinaan, pendampingan, dan reintegrasi sosial Anak yang Berhadapan dengan Hukum (ABH).",
       icon: "🧒",
       color: "bg-blue-50 border-blue-100 text-blue-600",
-      link: "/layanan/litmas-anak",
+      link: "/layanan/klien-anak",
     },
     {
       id: 2,
-      title: "Pelayanan Pembuatan Litmas Dewasa",
+      title: "Pelayanan Klien Dewasa",
       description:
-        "Pembuatan laporan Litmas Dewasa sebagai bahan pertimbangan dalam proses peradilan dan program pembinaan klien pemasyarakatan.",
-      icon: "🗂️",
+        "Layanan terpadu meliputi pembuatan Litmas Dewasa dan bimbingan klien dewasa sebagai bagian dari proses pembinaan dan pendampingan klien pemasyarakatan.",
+      icon: "👥",
       color: "bg-indigo-50 border-indigo-100 text-indigo-600",
+      link: "/layanan/klien-dewasa",
     },
     {
       id: 3,
-      title: "Pelayanan Bimbingan Klien Dewasa",
-      description:
-        "Pelaksanaan pembimbingan kepribadian dan kemandirian bagi klien dewasa yang menjalani program integrasi.",
-      icon: "👥",
-      color: "bg-amber-50 border-amber-100 text-amber-600",
-    },
-    {
-      id: 4,
       title: "Pelayanan Pemberian Izin Klien ke Luar Kota",
       description:
         "Layanan pengajuan izin bepergian keluar kota bagi klien pemasyarakatan sesuai ketentuan yang berlaku.",
@@ -38,7 +31,7 @@ export default function Service() {
       color: "bg-emerald-50 border-emerald-100 text-emerald-600",
     },
     {
-      id: 5,
+      id: 4,
       title: "Pelayanan Pelimpahan Bimbingan Klien",
       description:
         "Layanan administrasi pelimpahan bimbingan klien pemasyarakatan ke Balai Pemasyarakatan lain sesuai wilayah domisili.",
@@ -46,7 +39,7 @@ export default function Service() {
       color: "bg-cyan-50 border-cyan-100 text-cyan-600",
     },
     {
-      id: 6,
+      id: 5,
       title: "Pelayanan Izin Klien ke Luar Negeri",
       description:
         "Layanan permohonan izin bepergian ke luar negeri bagi klien pemasyarakatan berdasarkan ketentuan hukum yang berlaku.",
@@ -54,7 +47,7 @@ export default function Service() {
       color: "bg-sky-50 border-sky-100 text-sky-600",
     },
     {
-      id: 7,
+      id: 6,
       title: "Pelayanan Pendampingan ABH",
       description:
         "Pendampingan terhadap Anak yang Berhadapan dengan Hukum (ABH) pada setiap tahapan proses peradilan pidana anak.",
@@ -62,7 +55,7 @@ export default function Service() {
       color: "bg-rose-50 border-rose-100 text-rose-600",
     },
     {
-      id: 8,
+      id: 7,
       title: "Pelayanan Pencabutan Integrasi Klien Pemasyarakatan",
       description:
         "Penanganan administrasi pencabutan program integrasi bagi klien yang melakukan pelanggaran atau tidak memenuhi ketentuan.",

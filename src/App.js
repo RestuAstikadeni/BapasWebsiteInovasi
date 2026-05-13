@@ -8,10 +8,18 @@ import Profile from "./pages/Profile";
 import Service from "./pages/Service";
 import Organization from "./pages/Organization";
 import Album from "./pages/Album";
-import Admin from "./pages/AdminDasboard";
+import AdminDasboard from "./pages/admin/Dashboard";
 import ScrollToTop from "./components/ScrollToTop";
 import AdminLogin from "./pages/AdminLogin";
-import LitmasAnak from "./pages/layanan/LitmasAnak";
+import KlienAnak from "./pages/layanan/KlienAnak";
+import KlienDewasa from "./pages/layanan/KlienDewasa";
+
+import KelolaService from "./pages/admin/KelolaService";
+import KelolaKlienAnak from "./pages/admin/KelolaKlienAnak";
+import KelolaKlienDewasa from "./pages/admin/KelolaKlienDewasa";
+import KelolaOrganization from "./pages/admin/KelolaOrganization";
+import KelolaNews from "./pages/admin/KelolaNews";
+import Settings from "./pages/admin/Settings";
 
 export default function App() {
   return (
@@ -27,8 +35,15 @@ export default function App() {
         <Route path="/organization" element={<Organization />} />
         <Route path="/album" element={<Album />} />
         <Route path="/adminlogin" element={<AdminLogin />} />
-        <Route path="/admindashboard" element={<Admin />} />
-        <Route path="/layanan/litmas-anak" element={<LitmasAnak />} />
+        <Route path="/admindashboard" element={<AdminDasboard />} />
+        <Route path="/layanan/klien-anak" element={<KlienAnak />} />
+        <Route path="/layanan/klien-dewasa" element={<KlienDewasa />} />
+        <Route path="/admin/kelola-service" element={<KelolaService />} />
+        <Route path="/admin/kelola-klien-anak" element={<KelolaKlienAnak />} />
+        <Route path="/admin/kelola-klien-dewasa" element={<KelolaKlienDewasa />} />
+        <Route path="/admin/kelola-organization" element={<KelolaOrganization />} />
+        <Route path="/admin/kelola-news" element={<KelolaNews />} />
+        <Route path="/admin/settings" element={<Settings />} />
       </Routes>
     </BaseLayout>
   );

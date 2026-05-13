@@ -1,7 +1,7 @@
 import React from "react";
 import ServiceDetailLayout from "../../components/layout/ServiceDetailLayout";
 
-export default function LitmasAnak() {
+export default function KlienAnak() {
   const sopPerlakuan = [
     {
       title: "Perlindungan",
