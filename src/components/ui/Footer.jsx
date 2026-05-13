@@ -24,17 +24,18 @@ export default function Footer() {
             <li>
               <span className="font-semibold text-white">Alamat:</span>
               <br />
-              Jl. Hos Cokroaminoto No. 1, Mataram, Nusa Tenggara Barat
+              Jl. Kokok Segara Raya, Lingkungan Kekalik Timur, Kekalik Jaya,
+              Kec. Sekarbela, Kota Mataram, Nusa Tenggara Bar. 83116
             </li>
             <li>
               <span className="font-semibold text-white">Telepon:</span>
               <br />
-              (0370) 000000
+              081946691939
             </li>
             <li>
               <span className="font-semibold text-white">Email:</span>
               <br />
-              bapas.mataram@example.com
+              http://bapasmataram.kemenkumham.go.id/
             </li>
           </ul>
         </div>
@@ -45,22 +46,22 @@ export default function Footer() {
           <ul className="space-y-3 text-sm text-blueSoft-light">
             <li>
               <Link to="/" className="transition hover:text-white">
-                Home
+                Beranda
               </Link>
             </li>
             <li>
               <Link to="/profile" className="transition hover:text-white">
-                Profile
+                Profil
               </Link>
             </li>
             <li>
               <Link to="/services" className="transition hover:text-white">
-                Services
+                Publikasi
               </Link>
             </li>
             <li>
               <Link to="/news" className="transition hover:text-white">
-                News
+                Layanan
               </Link>
             </li>
           </ul>

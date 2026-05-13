@@ -1,11 +1,12 @@
 import React from "react";
+import { Clock3 } from "lucide-react";
 import { Facebook, Instagram, Youtube } from "./Icons";
 
 export default function TopBar() {
   const socialLinks = [
     {
       name: "Facebook",
-      href: "https://facebook.com",
+      href: "https://www.facebook.com/InfoBapasMataram",
       icon: Facebook,
     },
     {
@@ -15,14 +16,15 @@ export default function TopBar() {
     },
     {
       name: "YouTube",
-      href: "https://youtube.com",
+      href: "https://www.youtube.com/@bapasmataram3480",
       icon: Youtube,
     },
   ];
 
   return (
-    <div className="w-full bg-navy text-white">
-      <div className="mx-auto flex h-8 items-center justify-between px-4 sm:px-6 md:px-10 lg:px-20 xl:px-40">
+    <div className="w-full border-b border-white/10 bg-navy text-white">
+      <div className="mx-auto flex h-9 items-center justify-between px-4 sm:px-6 md:px-10 lg:px-20 xl:px-40">
+        {/* SOCIAL */}
         <div className="flex items-center gap-3">
           {socialLinks.map((item) => {
             const Icon = item.icon;
@@ -40,6 +42,13 @@ export default function TopBar() {
               </a>
             );
           })}
+        </div>
+
+        {/* JAM OPERASIONAL */}
+        <div className="flex items-center gap-2 text-[13px]  tracking-wide text-yellow-500 sm:text-sm">
+          <Clock3 className="h-4 w-4" />
+
+          <span className="whitespace-nowrap">Senin - Jumat 08:00 - 16:00</span>
         </div>
       </div>
     </div>

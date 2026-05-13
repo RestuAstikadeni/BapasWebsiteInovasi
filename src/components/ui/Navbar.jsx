@@ -13,6 +13,10 @@ export default function Navbar() {
 
   const menuItems = [
     {
+      title: "Beranda",
+      path: "/",
+    },
+    {
       title: "Profil",
       path: "/profile",
       children: [
@@ -34,7 +38,18 @@ export default function Navbar() {
     {
       title: "Layanan",
       path: "/services",
-      children: [{ title: "Daftar Layanan", section: "services-list" }],
+      children: [
+        { title: "Daftar Layanan", section: "services-list" },
+        { title: "Pelayanan Klien Anak", path: "/layanan/klien-anak" },
+        { title: "Pelayanan Klien Dewasa", path: "/layanan/klien-dewasa" },
+        { title: "Pelayanan Pemberian Izin Klien ke Luar Kota", path: "/layanan/izin-luar-kota" },
+        { title: "Pelayanan Pelimpahan Bimbingan Klien", path: "/layanan/pelimpahan-bimbingan" },
+        { title: "Pelayanan Izin Klien ke Luar Negeri", path: "/layanan/izin-luar-negeri" },
+        { title: "Pelayanan Pendampingan ABH", path: "/layanan/pendampingan-abh" },
+        { title: "Pelayanan Pencabutan Integrasi Klien Pemasyarakatan", path: "/layanan/pencabutan-integrasi" },
+
+
+      ],
     },
     {
       title: "Admin",
@@ -91,6 +106,9 @@ export default function Navbar() {
     });
   };
 
+  const navClass =
+    "rounded-lg px-4 py-2 text-base font-medium transition xl:px-6 xl:text-[1.05rem]";
+
   return (
     <header className="sticky top-0 z-50 border-b border-slate-200 bg-white shadow-sm">
       <div className="mx-auto flex items-center justify-between px-4 py-3 sm:px-6 md:px-10 lg:px-20 xl:px-40">
@@ -133,7 +151,7 @@ export default function Navbar() {
                   <button
                     type="button"
                     onClick={() => navigate(item.path)}
-                    className={`rounded-lg px-4 py-2 text-base font-medium transition xl:px-6 xl:text-[1.05rem] ${
+                    className={`${navClass} ${
                       active
                         ? "bg-navy text-white"
                         : "text-navy-dark hover:bg-slate-100 hover:text-slate-900"
@@ -143,7 +161,7 @@ export default function Navbar() {
                   </button>
 
                   {openDropdown === item.title && (
-                    <div className="absolute right-0 top-full w-56 rounded-xl border border-slate-200 bg-white py-2 shadow-lg">
+                    <div className="absolute right-0 top-full w-max min-w-[220px] rounded-xl border border-slate-200 bg-white py-2 shadow-lg">
                       {item.children.map((child) => (
                         <button
                           key={child.title}
@@ -164,7 +182,7 @@ export default function Navbar() {
               <Link
                 key={item.title}
                 to={item.path}
-                className={`rounded-full p-2 transition ${
+                className={`rounded-lg px-4 py-2 text-base font-medium transition xl:px-6 xl:text-[1.05rem] ${
                   active
                     ? "bg-navy text-white"
                     : "text-navy-dark hover:bg-slate-100 hover:text-slate-900"

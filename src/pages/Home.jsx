@@ -209,7 +209,7 @@ export default function Home() {
                     {item.description}
                   </p>
 
-                  <div className="mt-5 inline-flex text-sm font-bold text-secondary transition">
+                  <div className="mt-5 inline-flex text-sm font-bold text-black hover:text-secondary transition">
                     Baca Selengkapnya...
                   </div>
                 </div>

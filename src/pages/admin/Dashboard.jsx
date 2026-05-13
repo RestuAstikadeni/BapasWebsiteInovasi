@@ -164,7 +164,7 @@ export default function Dashboard() {
   ];
 
   return (
-    <div className="space-y-10">
+    <div className="w-full max-w-full space-y-10 overflow-x-hidden">
       {/* STATS */}
       <section>
         <SectionTitle
@@ -172,14 +172,14 @@ export default function Dashboard() {
           subtitle="Ringkasan data konten website Bapas."
         />
 
-        <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+        <div className="grid grid-cols-2 gap-4 sm:gap-6 md:grid-cols-2 xl:grid-cols-4">
           {stats.map((item, index) => {
             const Icon = item.icon;
 
             return (
               <div
                 key={index}
-                className="group rounded-3xl border border-slate-200 bg-white p-6 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-xl"
+                className="group rounded-3xl border border-slate-200 bg-white p-5 sm:p-6 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-xl"
               >
                 <div className="flex items-start justify-between">
                   <div>
@@ -187,17 +187,19 @@ export default function Dashboard() {
                       {item.title}
                     </p>
 
-                    <h2 className="mt-3 text-5xl font-black text-slate-900">
+                    <h2 className="mt-3 text-3xl sm:text-5xl font-black text-slate-900">
                       {item.value}
                     </h2>
 
-                    <p className="mt-2 text-sm text-slate-500">{item.desc}</p>
+                    <p className="mt-2 text-xs xl:text-sm text-slate-500">
+                      {item.desc}
+                    </p>
                   </div>
 
                   <div
-                    className={`flex h-16 w-16 items-center justify-center rounded-2xl text-white shadow-lg ${item.color}`}
+                    className={`flex h-8 w-8 sm:h-16 sm:w-16 items-center justify-center rounded-2xl text-white shadow-lg ${item.color}`}
                   >
-                    <Icon size={30} />
+                    <Icon className="h-5 w-5 sm:h-6 sm:w-6 md:h-7 md:w-7" />
                   </div>
                 </div>
               </div>
@@ -211,67 +213,130 @@ export default function Dashboard() {
         <SectionTitle
           title="Menu Pengelolaan"
           subtitle="Kelola seluruh modul dan konten website."
+          className="w-full flex items-center justify-between"
         />
 
-        <div className="grid gap-6 xl:grid-cols-12">
+        {/* IMPORTANT */}
+        <div className="grid items-start gap-6 grid-cols-1 xl:grid-cols-12">
           {/* SIDEBAR */}
-          <div className="xl:col-span-3">
-            <div className="sticky top-6 rounded-3xl border border-slate-200 bg-white p-5 shadow-sm">
-              <h3 className="mb-5 text-sm font-bold uppercase tracking-wider text-slate-500">
-                Navigasi Pengelolaan
-              </h3>
+          {/* MOBILE TOPBAR + DESKTOP SIDEBAR */}
+          <div className="self-start xl:col-span-3">
+            <div className="border border-slate-200 bg-white shadow-sm xl:rounded-3xl xl:p-5 xl:sticky xl:top-6 xl:max-h-[calc(100vh-48px)]">
+              {/* MOBILE TOPBAR */}
+              <div className="sticky top-0 z-20 border-b border-slate-200 bg-white px-4 py-4 xl:hidden">
+                <div className="mb-3 flex items-center justify-between">
+                  <h3 className="text-sm font-bold text-slate-800">
+                    Menu Pengelolaan
+                  </h3>
 
-              <div className="max-h-[700px] space-y-2 overflow-y-auto pr-2 custom-scrollbar">
-                {menus.map((item, index) => {
-                  const Icon = item.icon;
-                  const active = activeMenu === item.title;
+                  <div className="rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold text-primary">
+                    {menus.length} Menu
+                  </div>
+                </div>
 
-                  return (
-                    <button
-                      key={index}
-                      onClick={() => setActiveMenu(item.title)}
-                      className={`group flex w-full items-center gap-4 rounded-2xl px-4 py-3 text-left transition duration-200 ${
-                        active ? "bg-primary text-white" : "hover:bg-slate-100"
-                      }`}
-                    >
-                      <div
-                        className={`flex h-11 w-11 items-center justify-center rounded-xl text-white ${
-                          active ? "bg-white/20" : item.color
+                {/* HORIZONTAL MENU */}
+                <div className="flex gap-3 overflow-x-auto pb-1 custom-scrollbar">
+                  {menus.map((item, index) => {
+                    const Icon = item.icon;
+                    const active = activeMenu === item.title;
+
+                    return (
+                      <button
+                        key={index}
+                        onClick={() => setActiveMenu(item.title)}
+                        className={`flex min-w-fit items-center gap-3 rounded-2xl border px-4 py-3 transition ${
+                          active
+                            ? "border-primary bg-primary text-white"
+                            : "border-slate-200 bg-white text-slate-700"
                         }`}
                       >
-                        <Icon size={20} />
-                      </div>
-
-                      <div>
-                        <h4
-                          className={`text-sm font-semibold ${
-                            active ? "text-white" : "text-slate-800"
+                        <div
+                          className={`flex h-10 w-10 items-center justify-center rounded-xl text-white ${
+                            active ? "bg-white/20" : item.color
                           }`}
                         >
-                          {item.title}
-                        </h4>
+                          <Icon className="h-5 w-5" />
+                        </div>
 
-                        <p
-                          className={`text-xs ${
-                            active ? "text-slate-200" : "text-slate-500"
+                        <div className="text-left">
+                          <p className="whitespace-nowrap text-sm font-semibold">
+                            {item.title}
+                          </p>
+
+                          <p
+                            className={`text-xs ${
+                              active ? "text-slate-200" : "text-slate-500"
+                            }`}
+                          >
+                            Kelola data
+                          </p>
+                        </div>
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+
+              {/* DESKTOP SIDEBAR */}
+              <div className="hidden xl:block">
+                <h3 className="mb-5 text-sm font-bold uppercase tracking-wider text-slate-500">
+                  Navigasi Pengelolaan
+                </h3>
+
+                <div className="space-y-2 overflow-y-auto pr-1 custom-scrollbar xl:max-h-[calc(100vh-140px)]">
+                  {menus.map((item, index) => {
+                    const Icon = item.icon;
+                    const active = activeMenu === item.title;
+
+                    return (
+                      <button
+                        key={index}
+                        onClick={() => setActiveMenu(item.title)}
+                        className={`group flex w-full items-center gap-4 rounded-2xl px-4 py-3 text-left transition duration-200 ${
+                          active
+                            ? "bg-primary text-white"
+                            : "hover:bg-slate-100"
+                        }`}
+                      >
+                        <div
+                          className={`flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-xl text-white ${
+                            active ? "bg-white/20" : item.color
                           }`}
                         >
-                          Kelola data
-                        </p>
-                      </div>
-                    </button>
-                  );
-                })}
+                          <Icon className="h-6 w-6" />
+                        </div>
+
+                        <div className="min-w-0 flex-1">
+                          <h4
+                            className={`truncate text-sm font-semibold ${
+                              active ? "text-white" : "text-slate-800"
+                            }`}
+                          >
+                            {item.title}
+                          </h4>
+
+                          <p
+                            className={`truncate text-xs ${
+                              active ? "text-slate-200" : "text-slate-500"
+                            }`}
+                          >
+                            Kelola data
+                          </p>
+                        </div>
+                      </button>
+                    );
+                  })}
+                </div>
               </div>
             </div>
           </div>
 
           {/* CONTENT */}
-          <div className="xl:col-span-9">
-            <div className="rounded-3xl border border-slate-200 bg-white shadow-sm">
+          <div className="min-w-0 xl:col-span-9">
+            <div className="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm xl:h-[calc(100vh-48px)] xl:flex xl:flex-col">
               {/* HEADER */}
-              <div className="border-b border-slate-200 px-7 py-5">
-                <h3 className="text-2xl font-bold text-slate-900">
+              <div className="border-b border-slate-200 px-4 py-5 sm:px-7">
+                <h3 className="break-words text-xl font-bold text-slate-900 sm:text-2xl">
                   {activeMenu}
                 </h3>
 
@@ -279,9 +344,8 @@ export default function Dashboard() {
                   Form pengelolaan konten website.
                 </p>
               </div>
-
               {/* FORM CONTENT */}
-              <div className="p-7">
+              <div className="overflow-y-auto p-4 sm:p-7 xl:flex-1 custom-scrollbar">
                 {/* HOME */}
                 {activeMenu === "Kelola Home" && (
                   <div className="space-y-8">
@@ -1738,7 +1802,6 @@ export default function Dashboard() {
             ))}
           </div>
         </div>
-
       </section>
     </div>
   );
