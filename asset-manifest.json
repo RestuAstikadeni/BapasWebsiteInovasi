@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/BapasWebsiteInovasi/static/css/main.a53a2cf1.css",
-    "main.js": "/BapasWebsiteInovasi/static/js/main.52b17c40.js",
+    "main.css": "/BapasWebsiteInovasi/static/css/main.7ab74c44.css",
+    "main.js": "/BapasWebsiteInovasi/static/js/main.558a9d8b.js",
     "static/media/home-background.jpg": "/BapasWebsiteInovasi/static/media/home-background.0e54d6dd44df8120fa72.jpg",
     "static/media/news-52.jpg": "/BapasWebsiteInovasi/static/media/news-52.2036f676032530b8fbbe.jpg",
     "static/media/album-1.jpg": "/BapasWebsiteInovasi/static/media/album-1.cfac66eb2cf36d0caeba.jpg",
@@ -10,8 +10,21 @@
     "static/media/struktur-organisasi.png": "/BapasWebsiteInovasi/static/media/struktur-organisasi.2e0acdc0b12dcdc0f11f.png",
     "static/media/album-5.jpg": "/BapasWebsiteInovasi/static/media/album-5.06af1fe5128c46055afc.jpg",
     "static/media/news-5.jpg": "/BapasWebsiteInovasi/static/media/news-5.06af1fe5128c46055afc.jpg",
+    "static/media/kabapas.png": "/BapasWebsiteInovasi/static/media/kabapas.c55237e31200a8794eea.png",
     "static/media/news-42.jpg": "/BapasWebsiteInovasi/static/media/news-42.0fb4e63c5d517ce11ee6.jpg",
+    "static/media/kasubkerdewasa.png": "/BapasWebsiteInovasi/static/media/kasubkerdewasa.e9c5cc651b6280553226.png",
+    "static/media/kaurpegawai.png": "/BapasWebsiteInovasi/static/media/kaurpegawai.1f00a16d39dfcd1a58f4.png",
+    "static/media/kasubagtu.png": "/BapasWebsiteInovasi/static/media/kasubagtu.512fc30cd6c42f26ad18.png",
+    "static/media/kasubkeranak.png": "/BapasWebsiteInovasi/static/media/kasubkeranak.89e89b06bf1141db0d29.png",
+    "static/media/kasikliendewasa.png": "/BapasWebsiteInovasi/static/media/kasikliendewasa.815d3e29ddc84ba91443.png",
     "static/media/news-32.jpg": "/BapasWebsiteInovasi/static/media/news-32.6af701f1044d24d12b79.jpg",
+    "static/media/kaurumum.png": "/BapasWebsiteInovasi/static/media/kaurumum.7e68e031d47bdba64bde.png",
+    "static/media/kasubregisdewasa.png": "/BapasWebsiteInovasi/static/media/kasubregisdewasa.e3d664e08fe16afc40d6.png",
+    "static/media/kasubregisanak.png": "/BapasWebsiteInovasi/static/media/kasubregisanak.e28e7779e539a074dcf1.png",
+    "static/media/kasubbimanak.png": "/BapasWebsiteInovasi/static/media/kasubbimanak.43b1390ca462bd1bc2ca.png",
+    "static/media/kasiklienanak.png": "/BapasWebsiteInovasi/static/media/kasiklienanak.cc3c42f763b84032bf0a.png",
+    "static/media/kasubbimdewasa.png": "/BapasWebsiteInovasi/static/media/kasubbimdewasa.d14089f955c7f2d6d9ed.png",
+    "static/media/kaurkeuangan.png": "/BapasWebsiteInovasi/static/media/kaurkeuangan.e192abc19d2d44814445.png",
     "static/media/wajib-lapor.png": "/BapasWebsiteInovasi/static/media/wajib-lapor.3994ce407bcabdd956cb.png",
     "static/media/service-banner.jpg": "/BapasWebsiteInovasi/static/media/service-banner.fe3dddbc7acd5a22ca30.jpg",
     "static/media/laporan-pengaduan.png": "/BapasWebsiteInovasi/static/media/laporan-pengaduan.a652e6afff647ed604c2.png",
@@ -33,11 +46,11 @@
     "static/media/album-8.jpg": "/BapasWebsiteInovasi/static/media/album-8.be5ff4dfd702acc89d57.jpg",
     "static/media/news-22.jpg": "/BapasWebsiteInovasi/static/media/news-22.be5ff4dfd702acc89d57.jpg",
     "index.html": "/BapasWebsiteInovasi/index.html",
-    "main.a53a2cf1.css.map": "/BapasWebsiteInovasi/static/css/main.a53a2cf1.css.map",
-    "main.52b17c40.js.map": "/BapasWebsiteInovasi/static/js/main.52b17c40.js.map"
+    "main.7ab74c44.css.map": "/BapasWebsiteInovasi/static/css/main.7ab74c44.css.map",
+    "main.558a9d8b.js.map": "/BapasWebsiteInovasi/static/js/main.558a9d8b.js.map"
   },
   "entrypoints": [
-    "static/css/main.a53a2cf1.css",
-    "static/js/main.52b17c40.js"
+    "static/css/main.7ab74c44.css",
+    "static/js/main.558a9d8b.js"
   ]
 }
