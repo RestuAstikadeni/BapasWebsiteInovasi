@@ -38,7 +38,7 @@ export default function TopBar() {
                 aria-label={item.name}
                 className="text-white/90 transition duration-300 hover:-translate-y-0.5 hover:text-blueSoft-light"
               >
-                <Icon size={16} />
+                <Icon size={20} />
               </a>
             );
           })}

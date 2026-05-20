@@ -40,15 +40,8 @@ export default function Navbar() {
       path: "/services",
       children: [
         { title: "Daftar Layanan", section: "services-list" },
-        { title: "Pelayanan Klien Anak", path: "/layanan/klien-anak" },
-        { title: "Pelayanan Klien Dewasa", path: "/layanan/klien-dewasa" },
-        { title: "Pelayanan Pemberian Izin Klien ke Luar Kota", path: "/layanan/izin-luar-kota" },
-        { title: "Pelayanan Pelimpahan Bimbingan Klien", path: "/layanan/pelimpahan-bimbingan" },
-        { title: "Pelayanan Izin Klien ke Luar Negeri", path: "/layanan/izin-luar-negeri" },
-        { title: "Pelayanan Pendampingan ABH", path: "/layanan/pendampingan-abh" },
-        { title: "Pelayanan Pencabutan Integrasi Klien Pemasyarakatan", path: "/layanan/pencabutan-integrasi" },
-
-
+        { title: "Layanan Klien Anak", section: "layanan-anak" },
+        { title: "Layanan Klien Dewasa", section: "layanan-dewasa" },
       ],
     },
     {
