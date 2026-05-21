@@ -48,7 +48,9 @@ export default function TopBar() {
         <div className="flex items-center gap-2 text-[13px]  tracking-wide text-yellow-500 sm:text-sm">
           <Clock3 className="h-4 w-4" />
 
-          <span className="whitespace-nowrap">Senin - Jumat 08:00 - 16:00</span>
+          <span className="whitespace-nowrap text-yellow-500">
+            Senin - Jumat 08:00 - 16:00
+          </span>
         </div>
       </div>
     </div>

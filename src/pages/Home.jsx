@@ -17,6 +17,9 @@ import Album4 from "../assets/images/news/news-4.jpg";
 import Album5 from "../assets/images/news/news-5.jpg";
 import Album6 from "../assets/images/news/news-6.jpg";
 
+import LogoImipas from "../assets/images/logo-imipas.png";
+import LogoPas from "../assets/images/logo-pas.png";
+
 const services = [
   {
     title: "Wajib Lapor",
@@ -76,6 +79,10 @@ export default function Home() {
           variants={fadeUp}
         >
           <div className="w-full max-w-3xl space-y-4 text-white">
+            <div className="flex items-center gap-4">
+              <img src={LogoImipas} alt="Logo IMIPAS" className="h-10 lg:h-14 w-auto" />
+              <img src={LogoPas} alt="Logo PAS" className="h-10 lg:h-14 w-auto" />
+            </div>
             <h1 className="text-xl font-bold leading-[1.2] sm:text-4xl md:text-[3rem] md:leading-[1.1]">
               Balai Pemasyarakatan
               <br />

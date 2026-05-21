@@ -1,6 +1,19 @@
 import React from "react";
+import { motion } from "framer-motion";
 import ServiceBanner from "../assets/images/service-banner.jpg";
 import { Link } from "react-router-dom";
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 40 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.7,
+      ease: "easeOut",
+    },
+  },
+};
 
 export default function Service() {
   const services = [
@@ -85,26 +98,53 @@ export default function Service() {
   return (
     <div className="min-h-screen bg-slate-50 font-sans">
       {/* HERO */}
-      <section className="w-full flex items-center align-middle">
-        <div className=" items-center mx-auto max-w-7xl py-4">
+      <motion.section
+        variants={fadeUp}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true }}
+        className="flex w-full items-center align-middle"
+      >
+        <div className="items-center mx-auto max-w-7xl py-4">
           <div className="grid items-center gap-10 lg:grid-cols-2">
             {/* IMAGE */}
-            <div className="mx-auto w-full max-w-5xl">
-              <div className="overflow-hidden rounded-3xl shadow-xl ring-1 ring-slate-200">
-                <img
+            <motion.div
+              initial={{ opacity: 0, x: -40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.7 }}
+              viewport={{ once: true }}
+              className="mx-auto w-full max-w-5xl"
+            >
+              <motion.div
+                whileHover={{ y: -5 }}
+                transition={{ duration: 0.2 }}
+                className="overflow-hidden rounded-3xl shadow-xl ring-1 ring-slate-200"
+              >
+                <motion.img
+                  whileHover={{ scale: 1.03 }}
+                  transition={{ duration: 0.5 }}
                   src={ServiceBanner}
                   alt="Layanan Bapas Kelas I Mataram"
                   loading="lazy"
-                  className="h-full w-full object-contain transition duration-500 hover:scale-[1.02]"
+                  className="h-full w-full object-contain"
                 />
-              </div>
-            </div>
+              </motion.div>
+            </motion.div>
 
             {/* TEXT */}
-            <div className="mx-auto max-w-2xl text-center lg:text-left">
-              <span className="inline-flex rounded-full bg-blue-100 px-4 py-1 text-sm font-semibold text-blue-700">
+            <motion.div
+              initial={{ opacity: 0, x: 40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.7 }}
+              viewport={{ once: true }}
+              className="mx-auto max-w-2xl text-center lg:text-left"
+            >
+              <motion.span
+                whileHover={{ scale: 1.05 }}
+                className="inline-flex rounded-full bg-blue-100 px-4 py-1 text-sm font-semibold text-blue-700"
+              >
                 Pelayanan Bapas
-              </span>
+              </motion.span>
 
               <h1 className="mt-5 text-4xl font-bold leading-tight text-slate-900 md:text-5xl">
                 Layanan Bapas Kelas I Mataram
@@ -116,141 +156,74 @@ export default function Service() {
                 dipungut biaya sesuai standar pelayanan pemasyarakatan.
               </p>
 
-              <div className="mt-8 flex flex-col gap-4 sm:flex-row lg:justify-start">
-                <button className="rounded-xl bg-primary px-6 py-3 font-semibold text-white transition hover:bg-primary-hover">
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="mt-8 flex flex-col gap-4 sm:flex-row lg:justify-start"
+              >
+                <a
+                  href="https://wa.me/6281946691939"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex rounded-xl bg-navy px-6 py-3 font-semibold text-white transition hover:bg-primary"
+                >
                   Hubungi Admin
-                </button>
-
-                <button className="rounded-xl border border-slate-300 bg-white px-6 py-3 font-semibold text-slate-700 transition hover:bg-slate-100">
-                  Lihat Layanan
-                </button>
-              </div>
-            </div>
+                </a>
+              </motion.div>
+            </motion.div>
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* SERVICES */}
-      <section id="services-list" className="mx-auto max-w-7xl  py-16">
+      <motion.section
+        id="services-list"
+        variants={fadeUp}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true }}
+        className="mx-auto max-w-7xl py-16"
+      >
         <div className="mb-8 text-center">
-          <h2 className="text-3xl font-bold text-slate-900">Daftar Layanan</h2>
+          <motion.h2
+            initial={{ opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="text-3xl font-bold text-slate-900"
+          >
+            Daftar Layanan
+          </motion.h2>
 
-          <div className="mx-auto mt-4 h-1 w-24 rounded-full bg-amber-500" />
+          <motion.div
+            initial={{ width: 0 }}
+            whileInView={{ width: 96 }}
+            transition={{ duration: 0.7 }}
+            viewport={{ once: true }}
+            className="mx-auto mt-4 h-1 rounded-full bg-amber-500"
+          />
         </div>
 
-        {/* LAYANAN ANAK */}
-        <section id="layanan-anak" className="mb-12 overflow-hidden rounded-3xl bg-white shadow-sm">
-          <div className="bg-navy px-8 py-6 text-white">
-            <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
-              <div>
-                <div className="flex items-center gap-4">
-                  <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-white/20 text-4xl backdrop-blur-sm">
-                    🧒
-                  </div>
-
-                  <div>
-                    <h3 className="text-2xl font-bold">Layanan Klien Anak</h3>
-
-                    <p className="mt-1 text-blue-100">
-                      Pelayanan khusus Anak yang Berhadapan dengan Hukum (ABH)
-                    </p>
-                  </div>
-                </div>
-
-                <p className="mt-2 text-blue-100">
-                  Pelayanan khusus Anak yang Berhadapan dengan Hukum (ABH)
-                  meliputi pendampingan, penelitian kemasyarakatan, dan
-                  pembimbingan.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <div className="px-8 py-8">
-            <div className="space-y-4">
-              {[
-                {
-                  title: "SOP Pendampingan Anak Dibawah 12 Tahun",
-                  file: "SOP PENDAMPINGAN ANAK DIBAWAH 12 TAHUN.pdf",
-                },
-                {
-                  title: "SOP Pendampingan Awal Anak di Tingkat Penyidikan",
-                  file: "SOP PENDAMPINGAN AWAL ANAK DITINGKAT PENYIDIKAN.pdf",
-                },
-                {
-                  title: "SOP Pendampingan Diversi pada Tahap Penuntutan",
-                  file: "SOP PENDAMPINGAN DIVERSI PADA TAHAP PENUNTUTAN.pdf",
-                },
-                {
-                  title: "SOP Pendampingan Diversi pada Tahap Penyidikan",
-                  file: "SOP PENDAMPINGAN DIVERSI PADA TAHAP PENYIDIKAN.pdf",
-                },
-                {
-                  title: "SOP Pendampingan Hasil Kesepakatan Diversi",
-                  file: "SOP PENDAMPINGAN HASIL KESEPAKATAN DIVERSI.pdf",
-                },
-                {
-                  title: "SOP Pendampingan Mediasi",
-                  file: "SOP PENDAMPINGAN MEDIASI.pdf",
-                },
-                {
-                  title: "SOP Pendampingan Pelaksanaan Putusan Pengadilan",
-                  file: "SOP PENDAMPINGAN PELAKSANAAN PUTUSAN PENGADILAN.pdf",
-                },
-                {
-                  title: "SOP Pendampingan Pemeriksaan Anak di Kejaksaan",
-                  file: "SOP PENDAMPINGAN PEMERIKSAAN ANAK DI KEJAKSAAN PADA SAAT PELIMPAHAN BERKAS.pdf",
-                },
-                {
-                  title: "SOP Pendampingan Sidang Pengadilan Anak",
-                  file: "SOP PENDAMPINGAN SIDANG PENGADILAN ANAK.pdf",
-                },
-              ].map((item, index) => (
-                <div
-                  key={index}
-                  className="flex flex-col gap-4 rounded-2xl border border-slate-200 bg-slate-50 p-5 md:flex-row md:items-center md:justify-between"
-                >
-                  <div className="flex items-center gap-4">
-                    <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-red-100 text-xl">
-                      📄
-                    </div>
-
-                    <div>
-                      <h4 className="font-semibold text-slate-900">
-                        {item.title}
-                      </h4>
-
-                      <p className="text-sm text-slate-500">
-                        Dokumen SOP layanan klien anak
-                      </p>
-                    </div>
-                  </div>
-
-                  <a
-                    href={`/sop/anak/${item.file}`}
-                    download
-                    className="inline-flex items-center justify-center rounded-xl bg-navy px-5 py-3 text-sm font-semibold text-white transition hover:bg-primary"
-                  >
-                    Download SOP
-                  </a>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
         {/* LAYANAN DEWASA */}
-        <section id="layanan-dewasa" className="overflow-hidden rounded-3xl border border-indigo-100 bg-white shadow-sm">
+        <motion.section
+          whileHover={{ y: -4 }}
+          transition={{ duration: 0.2 }}
+          id="layanan-dewasa"
+          className="overflow-hidden rounded-3xl border border-indigo-100 bg-white shadow-sm"
+        >
           <div className="bg-navy px-8 py-6 text-white">
             <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
               <div>
                 <div className="flex items-center gap-4">
-                  <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-white/20 text-4xl backdrop-blur-sm">
+                  <motion.div
+                    whileHover={{ scale: 1.08, rotate: 2 }}
+                    className="flex h-16 w-16 items-center justify-center rounded-2xl bg-white/20 text-4xl backdrop-blur-sm"
+                  >
                     👨‍💼
-                  </div>
+                  </motion.div>
 
                   <div>
-                    <h3 className="text-2xl font-bold">Layanan Klien Dewasa</h3>
+                    <h3 className="text-2xl font-bold">Layanan Klien</h3>
 
                     <p className="mt-1 text-indigo-100">
                       Pelayanan pembimbingan dan administrasi klien dewasa
@@ -307,14 +280,25 @@ export default function Service() {
                   file: "SOP PENDAFTARAN KLIEN.pdf",
                 },
               ].map((item, index) => (
-                <div
+                <motion.div
                   key={index}
+                  initial={{ opacity: 0, y: 25 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{
+                    duration: 0.5,
+                    delay: index * 0.06,
+                  }}
+                  viewport={{ once: true }}
+                  whileHover={{ y: -4 }}
                   className="flex flex-col gap-4 rounded-2xl border border-slate-200 bg-slate-50 p-5 md:flex-row md:items-center md:justify-between"
                 >
                   <div className="flex items-center gap-4">
-                    <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-indigo-100 text-xl">
+                    <motion.div
+                      whileHover={{ scale: 1.08 }}
+                      className="flex h-12 w-12 items-center justify-center rounded-xl bg-indigo-100 text-xl"
+                    >
                       📄
-                    </div>
+                    </motion.div>
 
                     <div>
                       <h4 className="font-semibold text-slate-900">
@@ -327,69 +311,147 @@ export default function Service() {
                     </div>
                   </div>
 
-                  <a
+                  <motion.a
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
                     href={`/sop/dewasa/${item.file}`}
                     download
                     className="inline-flex items-center justify-center rounded-xl bg-navy px-5 py-3 text-sm font-semibold text-white transition hover:bg-primary"
                   >
                     Download SOP
-                  </a>
-                </div>
+                  </motion.a>
+                </motion.div>
               ))}
             </div>
           </div>
-        </section>
-      </section>
+        </motion.section>
+      </motion.section>
 
-      {/* MAKLUMAT */}
-      <section className="bg-blue-950 py-16 text-white rounded-3xl">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
+      {/* LAYANAN ANAK */}
+      <motion.section
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true }}
+        variants={fadeUp}
+        id="layanan-anak"
+        className="overflow-hidden rounded-3xl bg-white shadow-sm"
+      >
+        <div className="bg-navy px-8 py-6 text-white">
+          <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
             <div>
-              <span className="rounded-full bg-blue-800 px-4 py-1 text-sm font-semibold text-blue-100">
-                Maklumat Pelayanan
-              </span>
-
-              <h2 className="mt-5 text-3xl font-bold leading-tight md:text-4xl">
-                Seluruh Layanan Tidak Dipungut Biaya
-              </h2>
-
-              <p className="mt-5 leading-relaxed text-blue-100">
-                Balai Pemasyarakatan Kelas I Mataram berkomitmen memberikan
-                pelayanan prima, profesional, transparan, dan bebas dari
-                pungutan liar.
-              </p>
-
-              <div className="mt-8 rounded-2xl border border-blue-800 bg-blue-900/40 p-5 text-sm leading-relaxed text-blue-100">
-                Berdasarkan:
-                <br />
-                KEPDIRJENPAS NOMOR: PAS-36.OT.02.02 TAHUN 2020
-                <br />
-                Tentang Standar Pelayanan Pemasyarakatan.
-              </div>
-            </div>
-
-            <div className="space-y-6">
-              {features.map((feature, index) => (
-                <div
-                  key={index}
-                  className="flex items-start rounded-2xl border border-blue-800 bg-blue-900/40 p-5"
+              <div className="flex items-center gap-4">
+                <motion.div
+                  whileHover={{ scale: 1.08, rotate: -2 }}
+                  className="flex h-16 w-16 items-center justify-center rounded-2xl bg-white/20 text-4xl backdrop-blur-sm"
                 >
-                  <div className="mr-5 text-3xl">{feature.icon}</div>
+                  🧒
+                </motion.div>
 
-                  <div>
-                    <h4 className="text-lg font-bold text-white">
-                      {feature.title}
-                    </h4>
+                <div>
+                  <h3 className="text-2xl font-bold">
+                    Layanan Khusus Klien Anak
+                  </h3>
 
-                    <p className="mt-1 text-blue-200">{feature.desc}</p>
-                  </div>
+                  <p className="mt-1 text-blue-100">
+                    Pelayanan khusus Anak yang Berhadapan dengan Hukum (ABH)
+                  </p>
                 </div>
-              ))}
+              </div>
+
+              <p className="mt-2 text-blue-100">
+                Pelayanan khusus Anak yang Berhadapan dengan Hukum (ABH)
+                meliputi pendampingan, penelitian kemasyarakatan, dan
+                pembimbingan.
+              </p>
             </div>
           </div>
         </div>
-      </section>
+
+        <div className="px-8 py-8">
+          <div className="space-y-4">
+            {[
+              {
+                title: "SOP Pendampingan Anak Dibawah 12 Tahun",
+                file: "SOP PENDAMPINGAN ANAK DIBAWAH 12 TAHUN.pdf",
+              },
+              {
+                title: "SOP Pendampingan Awal Anak di Tingkat Penyidikan",
+                file: "SOP PENDAMPINGAN AWAL ANAK DITINGKAT PENYIDIKAN.pdf",
+              },
+              {
+                title: "SOP Pendampingan Diversi pada Tahap Penuntutan",
+                file: "SOP PENDAMPINGAN DIVERSI PADA TAHAP PENUNTUTAN.pdf",
+              },
+              {
+                title: "SOP Pendampingan Diversi pada Tahap Penyidikan",
+                file: "SOP PENDAMPINGAN DIVERSI PADA TAHAP PENYIDIKAN.pdf",
+              },
+              {
+                title: "SOP Pendampingan Hasil Kesepakatan Diversi",
+                file: "SOP PENDAMPINGAN HASIL KESEPAKATAN DIVERSI.pdf",
+              },
+              {
+                title: "SOP Pendampingan Mediasi",
+                file: "SOP PENDAMPINGAN MEDIASI.pdf",
+              },
+              {
+                title: "SOP Pendampingan Pelaksanaan Putusan Pengadilan",
+                file: "SOP PENDAMPINGAN PELAKSANAAN PUTUSAN PENGADILAN.pdf",
+              },
+              {
+                title: "SOP Pendampingan Pemeriksaan Anak di Kejaksaan",
+                file: "SOP PENDAMPINGAN PEMERIKSAAN ANAK DI KEJAKSAAN PADA SAAT PELIMPAHAN BERKAS.pdf",
+              },
+              {
+                title: "SOP Pendampingan Sidang Pengadilan Anak",
+                file: "SOP PENDAMPINGAN SIDANG PENGADILAN ANAK.pdf",
+              },
+            ].map((item, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 25 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{
+                  duration: 0.5,
+                  delay: index * 0.06,
+                }}
+                viewport={{ once: true }}
+                whileHover={{ y: -4 }}
+                className="flex flex-col gap-4 rounded-2xl border border-slate-200 bg-slate-50 p-5 md:flex-row md:items-center md:justify-between"
+              >
+                <div className="flex items-center gap-4">
+                  <motion.div
+                    whileHover={{ scale: 1.08 }}
+                    className="flex h-12 w-12 items-center justify-center rounded-xl bg-red-100 text-xl"
+                  >
+                    📄
+                  </motion.div>
+
+                  <div>
+                    <h4 className="font-semibold text-slate-900">
+                      {item.title}
+                    </h4>
+
+                    <p className="text-sm text-slate-500">
+                      Dokumen SOP layanan klien anak
+                    </p>
+                  </div>
+                </div>
+
+                <motion.a
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  href={`/sop/anak/${item.file}`}
+                  download
+                  className="inline-flex items-center justify-center rounded-xl bg-navy px-5 py-3 text-sm font-semibold text-white transition hover:bg-primary"
+                >
+                  Download SOP
+                </motion.a>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </motion.section>
     </div>
   );
 }

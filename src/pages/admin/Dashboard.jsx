@@ -100,20 +100,6 @@ export default function Dashboard() {
       link: "/admin/kelola-service",
     },
     {
-      title: "Kelola Klien Anak",
-      desc: "Edit pelayanan klien anak",
-      icon: UserRound,
-      color: "bg-cyan-500",
-      link: "/admin/kelola-klien-anak",
-    },
-    {
-      title: "Kelola Klien Dewasa",
-      desc: "Edit pelayanan klien dewasa",
-      icon: FileText,
-      color: "bg-violet-500",
-      link: "/admin/kelola-klien-dewasa",
-    },
-    {
       title: "Pengaturan Website",
       desc: "Atur tampilan dan konfigurasi",
       icon: Settings,
@@ -229,7 +215,7 @@ export default function Dashboard() {
                     Menu Pengelolaan
                   </h3>
 
-                  <div className="rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold text-primary">
+                  <div className="rounded-full bg-navy/10 px-3 py-1 text-xs font-semibold text-primary">
                     {menus.length} Menu
                   </div>
                 </div>
@@ -246,7 +232,7 @@ export default function Dashboard() {
                         onClick={() => setActiveMenu(item.title)}
                         className={`flex min-w-fit items-center gap-3 rounded-2xl border px-4 py-3 transition ${
                           active
-                            ? "border-primary bg-primary text-white"
+                            ? "border-primary bg-navy text-white"
                             : "border-slate-200 bg-white text-slate-700"
                         }`}
                       >
@@ -283,7 +269,7 @@ export default function Dashboard() {
                   Navigasi Pengelolaan
                 </h3>
 
-                <div className="space-y-2 overflow-y-auto pr-1 custom-scrollbar xl:max-h-[calc(100vh-140px)]">
+                <div className="space-y-2 overflow-y-auto pr-1 custom-scrollbar xl:h-[calc(100vh-48px)]">
                   {menus.map((item, index) => {
                     const Icon = item.icon;
                     const active = activeMenu === item.title;
@@ -294,7 +280,7 @@ export default function Dashboard() {
                         onClick={() => setActiveMenu(item.title)}
                         className={`group flex w-full items-center gap-4 rounded-2xl px-4 py-3 text-left transition duration-200 ${
                           active
-                            ? "bg-primary text-white"
+                            ? "bg-navy text-white"
                             : "hover:bg-slate-100"
                         }`}
                       >
@@ -439,7 +425,7 @@ export default function Dashboard() {
 
                         {/* BUTTON */}
                         <div className="flex flex-wrap gap-4 pt-4">
-                          <button className="rounded-2xl bg-primary px-7 py-4 text-sm font-bold text-white transition hover:opacity-90">
+                          <button className="rounded-2xl bg-navy px-7 py-4 text-sm font-bold text-white transition hover:opacity-90">
                             Simpan Perubahan
                           </button>
 
@@ -587,7 +573,7 @@ export default function Dashboard() {
                           Misi
                         </h3>
 
-                        <button className="rounded-xl bg-primary px-4 py-2 text-sm font-bold text-white">
+                        <button className="rounded-xl bg-navy px-4 py-2 text-sm font-bold text-white">
                           + Tambah Misi
                         </button>
                       </div>
@@ -611,7 +597,7 @@ export default function Dashboard() {
                           Wilayah Kerja
                         </h3>
 
-                        <button className="rounded-xl bg-primary px-4 py-2 text-sm font-bold text-white">
+                        <button className="rounded-xl bg-navy px-4 py-2 text-sm font-bold text-white">
                           + Tambah Wilayah
                         </button>
                       </div>
@@ -639,7 +625,7 @@ export default function Dashboard() {
                           Fungsi Bapas
                         </h3>
 
-                        <button className="rounded-xl bg-primary px-4 py-2 text-sm font-bold text-white">
+                        <button className="rounded-xl bg-navy px-4 py-2 text-sm font-bold text-white">
                           + Tambah Fungsi
                         </button>
                       </div>
@@ -663,7 +649,7 @@ export default function Dashboard() {
                           Program & Sasaran
                         </h3>
 
-                        <button className="rounded-xl bg-primary px-4 py-2 text-sm font-bold text-white">
+                        <button className="rounded-xl bg-navy px-4 py-2 text-sm font-bold text-white">
                           + Tambah Program
                         </button>
                       </div>
@@ -700,7 +686,7 @@ export default function Dashboard() {
 
                     {/* BUTTON */}
                     <div className="flex flex-wrap gap-4">
-                      <button className="rounded-2xl bg-primary px-8 py-4 text-sm font-bold text-white transition hover:opacity-90">
+                      <button className="rounded-2xl bg-navy px-8 py-4 text-sm font-bold text-white transition hover:opacity-90">
                         Simpan Semua Perubahan
                       </button>
 
@@ -829,14 +815,14 @@ export default function Dashboard() {
                           </p>
                         </div>
 
-                        <button className="rounded-2xl bg-primary px-5 py-3 text-sm font-bold text-white">
+                        <button className="rounded-2xl bg-navy px-5 py-3 text-sm font-bold text-white">
                           + Tambah Pejabat
                         </button>
                       </div>
 
-                      {/* TABLE */}
-                      <div className="overflow-x-auto">
-                        <table className="w-full">
+                      {/* DESKTOP TABLE */}
+                      <div className="hidden overflow-x-auto lg:block">
+                        <table className="w-full min-w-[900px]">
                           <thead className="bg-slate-50">
                             <tr>
                               <th className="px-5 py-4 text-left text-sm font-bold text-slate-600">
@@ -867,7 +853,6 @@ export default function Dashboard() {
                                 key={item}
                                 className="border-t border-slate-100"
                               >
-                                {/* FOTO */}
                                 <td className="px-5 py-4">
                                   <img
                                     src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=300&auto=format&fit=crop"
@@ -876,7 +861,6 @@ export default function Dashboard() {
                                   />
                                 </td>
 
-                                {/* NAMA */}
                                 <td className="px-5 py-4">
                                   <input
                                     type="text"
@@ -885,7 +869,6 @@ export default function Dashboard() {
                                   />
                                 </td>
 
-                                {/* NIP */}
                                 <td className="px-5 py-4">
                                   <input
                                     type="text"
@@ -894,7 +877,6 @@ export default function Dashboard() {
                                   />
                                 </td>
 
-                                {/* JABATAN */}
                                 <td className="px-5 py-4">
                                   <input
                                     type="text"
@@ -903,8 +885,7 @@ export default function Dashboard() {
                                   />
                                 </td>
 
-                                {/* BUTTON */}
-                                <td className="px-5 py-4 text-right">
+                                <td className="px-5 py-4">
                                   <div className="flex justify-end gap-3">
                                     <button className="rounded-xl bg-blue-50 px-4 py-2 text-sm font-bold text-blue-700">
                                       Edit
@@ -920,11 +901,91 @@ export default function Dashboard() {
                           </tbody>
                         </table>
                       </div>
+
+                      {/* MOBILE CARD */}
+                      <div className="space-y-4 lg:hidden">
+                        {[1, 2, 3, 4].map((item) => (
+                          <div
+                            key={item}
+                            className="rounded-2xl border border-slate-200 bg-slate-50 p-4"
+                          >
+                            {/* FOTO */}
+                            <div className="flex items-center gap-4">
+                              <img
+                                src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=300&auto=format&fit=crop"
+                                alt="pegawai"
+                                className="h-20 w-20 rounded-2xl object-cover"
+                              />
+
+                              <div className="flex-1">
+                                <label className="mb-2 block text-sm font-semibold text-slate-700">
+                                  Upload Foto
+                                </label>
+
+                                <input
+                                  type="file"
+                                  className="w-full rounded-xl border border-dashed border-slate-300 bg-white px-3 py-2 text-sm"
+                                />
+                              </div>
+                            </div>
+
+                            {/* FORM */}
+                            <div className="mt-5 space-y-4">
+                              <div>
+                                <label className="mb-2 block text-sm font-semibold text-slate-700">
+                                  Nama
+                                </label>
+
+                                <input
+                                  type="text"
+                                  defaultValue="Nama Pejabat"
+                                  className="w-full rounded-xl border border-slate-200 bg-white px-4 py-3"
+                                />
+                              </div>
+
+                              <div>
+                                <label className="mb-2 block text-sm font-semibold text-slate-700">
+                                  NIP
+                                </label>
+
+                                <input
+                                  type="text"
+                                  defaultValue="197912312007031001"
+                                  className="w-full rounded-xl border border-slate-200 bg-white px-4 py-3"
+                                />
+                              </div>
+
+                              <div>
+                                <label className="mb-2 block text-sm font-semibold text-slate-700">
+                                  Jabatan
+                                </label>
+
+                                <input
+                                  type="text"
+                                  defaultValue="Kepala Seksi"
+                                  className="w-full rounded-xl border border-slate-200 bg-white px-4 py-3"
+                                />
+                              </div>
+                            </div>
+
+                            {/* BUTTON */}
+                            <div className="mt-5 flex gap-3">
+                              <button className="flex-1 rounded-xl bg-blue-50 px-4 py-3 text-sm font-bold text-blue-700">
+                                Edit
+                              </button>
+
+                              <button className="flex-1 rounded-xl bg-red-50 px-4 py-3 text-sm font-bold text-red-700">
+                                Hapus
+                              </button>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
                     </div>
 
                     {/* BUTTON SAVE */}
                     <div className="flex flex-wrap gap-4">
-                      <button className="rounded-2xl bg-primary px-8 py-4 text-sm font-bold text-white">
+                      <button className="rounded-2xl bg-navy px-8 py-4 text-sm font-bold text-white">
                         Simpan Semua Perubahan
                       </button>
 
@@ -952,7 +1013,7 @@ export default function Dashboard() {
                           </p>
                         </div>
 
-                        <button className="rounded-2xl bg-primary px-6 py-4 text-sm font-bold text-white transition hover:opacity-90">
+                        <button className="rounded-2xl bg-navy px-6 py-4 text-sm font-bold text-white transition hover:opacity-90">
                           + Tambah Berita
                         </button>
                       </div>
@@ -1087,7 +1148,7 @@ export default function Dashboard() {
 
                         {/* BUTTON */}
                         <div className="flex flex-wrap gap-4 pt-4">
-                          <button className="rounded-2xl bg-primary px-8 py-4 text-sm font-bold text-white transition hover:opacity-90">
+                          <button className="rounded-2xl bg-navy px-8 py-4 text-sm font-bold text-white transition hover:opacity-90">
                             Simpan Berita
                           </button>
 
@@ -1225,7 +1286,7 @@ export default function Dashboard() {
                           </p>
                         </div>
 
-                        <button className="rounded-2xl bg-primary px-6 py-4 text-sm font-bold text-white transition hover:opacity-90">
+                        <button className="rounded-2xl bg-navy px-6 py-4 text-sm font-bold text-white transition hover:opacity-90">
                           + Tambah Foto
                         </button>
                       </div>
@@ -1309,7 +1370,7 @@ export default function Dashboard() {
 
                           {/* BUTTON */}
                           <div className="flex flex-wrap gap-4">
-                            <button className="rounded-2xl bg-primary px-7 py-4 text-sm font-bold text-white transition hover:opacity-90">
+                            <button className="rounded-2xl bg-navy px-7 py-4 text-sm font-bold text-white transition hover:opacity-90">
                               Simpan Album
                             </button>
 
@@ -1365,7 +1426,7 @@ export default function Dashboard() {
                       </div>
 
                       {/* GRID */}
-                      <div className="grid gap-6 p-7 sm:grid-cols-2 xl:grid-cols-4">
+                      <div className="grid gap-6 p-7 sm:grid-cols-2 xl:grid-cols-3">
                         {[1, 2, 3, 4, 5, 6].map((item) => (
                           <div
                             key={item}
@@ -1415,26 +1476,6 @@ export default function Dashboard() {
                 {/* LAYANAN */}
                 {activeMenu === "Kelola Layanan" && (
                   <div className="space-y-8">
-                    {/* HEADER */}
-                    <div className="rounded-3xl border border-slate-200 bg-slate-50 p-7">
-                      <div className="flex flex-wrap items-center justify-between gap-4">
-                        <div>
-                          <h3 className="text-2xl font-bold text-slate-900">
-                            Pengaturan Layanan
-                          </h3>
-
-                          <p className="mt-2 text-sm text-slate-500">
-                            Kelola banner layanan, daftar layanan, dan maklumat
-                            pelayanan.
-                          </p>
-                        </div>
-
-                        <button className="rounded-2xl bg-primary px-6 py-4 text-sm font-bold text-white transition hover:opacity-90">
-                          + Tambah Layanan
-                        </button>
-                      </div>
-                    </div>
-
                     {/* HERO */}
                     <div className="rounded-3xl border border-slate-200 bg-white p-7">
                       <div className="mb-8">
@@ -1520,101 +1561,248 @@ export default function Dashboard() {
                     </div>
 
                     {/* DAFTAR LAYANAN */}
-                    <div className="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm">
+                    <div className="space-y-8">
                       {/* HEADER */}
-                      <div className="border-b border-slate-200 px-7 py-5">
-                        <h3 className="text-xl font-bold text-slate-900">
-                          Daftar Layanan
-                        </h3>
+                      <div className="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm">
+                        <div className="border-b border-slate-200 px-7 py-5">
+                          <div className="flex flex-wrap items-center justify-between gap-4">
+                            <div>
+                              <h3 className="text-xl font-bold text-slate-900">
+                                Daftar Layanan Website
+                              </h3>
 
-                        <p className="mt-1 text-sm text-slate-500">
-                          Seluruh layanan yang tersedia pada website.
-                        </p>
-                      </div>
+                              <p className="mt-1 text-sm text-slate-500">
+                                Kelola seluruh layanan pada halaman layanan
+                                website.
+                              </p>
+                            </div>
 
-                      {/* TABLE */}
-                      <div className="overflow-x-auto">
-                        <table className="w-full">
-                          <thead className="bg-slate-50">
-                            <tr>
-                              <th className="px-6 py-4 text-left text-sm font-bold text-slate-600">
-                                Icon
-                              </th>
+                            <button className="rounded-2xl bg-navy px-5 py-3 text-sm font-bold text-white">
+                              + Tambah Layanan
+                            </button>
+                          </div>
+                        </div>
 
-                              <th className="px-6 py-4 text-left text-sm font-bold text-slate-600">
-                                Nama Layanan
-                              </th>
-
-                              <th className="px-6 py-4 text-left text-sm font-bold text-slate-600">
-                                Deskripsi
-                              </th>
-
-                              <th className="px-6 py-4 text-left text-sm font-bold text-slate-600">
-                                Link
-                              </th>
-
-                              <th className="px-6 py-4 text-right text-sm font-bold text-slate-600">
-                                Aksi
-                              </th>
-                            </tr>
-                          </thead>
-
-                          <tbody>
-                            {[1, 2, 3, 4].map((item) => (
-                              <tr
-                                key={item}
-                                className="border-t border-slate-100"
-                              >
+                        {/* LIST */}
+                        <div className="space-y-5 p-7">
+                          {[
+                            {
+                              icon: "🧒",
+                              title: "Pelayanan Klien Anak",
+                              color: "bg-blue-100",
+                            },
+                            {
+                              icon: "👥",
+                              title: "Pelayanan Klien Dewasa",
+                              color: "bg-indigo-100",
+                            },
+                          ].map((item, index) => (
+                            <div
+                              key={index}
+                              className="rounded-3xl border border-slate-200 bg-slate-50 p-6"
+                            >
+                              <div className="grid gap-6 lg:grid-cols-12">
                                 {/* ICON */}
-                                <td className="px-6 py-5">
-                                  <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-blue-50 text-2xl">
-                                    🧒
+                                <div className="lg:col-span-2">
+                                  <label className="mb-3 block text-sm font-bold text-slate-700">
+                                    Icon
+                                  </label>
+
+                                  <div
+                                    className={`flex h-20 w-20 items-center justify-center rounded-3xl text-4xl ${item.color}`}
+                                  >
+                                    {item.icon}
                                   </div>
-                                </td>
+                                </div>
 
-                                {/* TITLE */}
-                                <td className="px-6 py-5">
-                                  <input
-                                    type="text"
-                                    defaultValue="Pelayanan Klien Anak"
-                                    className="w-full rounded-xl border border-slate-200 px-4 py-3"
-                                  />
-                                </td>
+                                {/* FORM */}
+                                <div className="space-y-5 lg:col-span-10">
+                                  {/* TITLE */}
+                                  <div>
+                                    <label className="mb-3 block text-sm font-bold text-slate-700">
+                                      Nama Layanan
+                                    </label>
 
-                                {/* DESC */}
-                                <td className="px-6 py-5">
-                                  <textarea
-                                    rows="3"
-                                    defaultValue="Layanan terpadu meliputi pembuatan Litmas Anak."
-                                    className="w-full rounded-xl border border-slate-200 px-4 py-3"
-                                  />
-                                </td>
+                                    <input
+                                      type="text"
+                                      defaultValue={item.title}
+                                      className="w-full rounded-2xl border border-slate-200 bg-white px-5 py-4"
+                                    />
+                                  </div>
 
-                                {/* LINK */}
-                                <td className="px-6 py-5">
-                                  <input
-                                    type="text"
-                                    defaultValue="/layanan/klien-anak"
-                                    className="w-full rounded-xl border border-slate-200 px-4 py-3"
-                                  />
-                                </td>
+                                  {/* DESC */}
+                                  <div>
+                                    <label className="mb-3 block text-sm font-bold text-slate-700">
+                                      Deskripsi Layanan
+                                    </label>
 
-                                {/* BUTTON */}
-                                <td className="px-6 py-5">
-                                  <div className="flex justify-end gap-3">
-                                    <button className="rounded-xl bg-blue-50 px-4 py-2 text-sm font-bold text-blue-700">
+                                    <textarea
+                                      rows="4"
+                                      defaultValue="Deskripsi layanan..."
+                                      className="w-full rounded-2xl border border-slate-200 bg-white px-5 py-4 leading-relaxed"
+                                    />
+                                  </div>
+
+                                  {/* LINK */}
+                                  <div>
+                                    <label className="mb-3 block text-sm font-bold text-slate-700">
+                                      Link Halaman
+                                    </label>
+
+                                    <input
+                                      type="text"
+                                      defaultValue="/layanan"
+                                      className="w-full rounded-2xl border border-slate-200 bg-white px-5 py-4"
+                                    />
+                                  </div>
+
+                                  {/* ACTION */}
+                                  <div className="flex flex-wrap gap-3 pt-2">
+                                    <button className="rounded-2xl bg-blue-50 px-5 py-3 text-sm font-bold text-blue-700">
                                       Edit
                                     </button>
 
-                                    <button className="rounded-xl bg-red-50 px-4 py-2 text-sm font-bold text-red-700">
+                                    <button className="rounded-2xl bg-red-50 px-5 py-3 text-sm font-bold text-red-700">
                                       Hapus
                                     </button>
                                   </div>
-                                </td>
-                              </tr>
-                            ))}
-                          </tbody>
-                        </table>
+                                </div>
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* SOP LAYANAN */}
+                    <div className="space-y-8">
+                      {/* SOP KLIEN ANAK */}
+                      <div className="rounded-3xl border border-slate-200 bg-white p-7">
+                        <div className="mb-6 flex flex-wrap items-center justify-between gap-4">
+                          <div>
+                            <h3 className="text-xl font-bold text-slate-900">
+                              SOP Layanan Klien Anak
+                            </h3>
+
+                            <p className="mt-1 text-sm text-slate-500">
+                              Upload dan kelola dokumen SOP layanan klien anak.
+                            </p>
+                          </div>
+
+                          <button className="rounded-2xl bg-navy px-5 py-3 text-sm font-bold text-white">
+                            + Tambah SOP Anak
+                          </button>
+                        </div>
+
+                        <div className="space-y-5">
+                          {[1, 2, 3].map((item) => (
+                            <div
+                              key={item}
+                              className="flex flex-col gap-5 rounded-2xl border border-slate-200 bg-slate-50 p-5 lg:flex-row lg:items-center lg:justify-between"
+                            >
+                              {/* INFO */}
+                              <div className="flex items-center gap-4">
+                                <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-red-100 text-2xl">
+                                  📄
+                                </div>
+
+                                <div>
+                                  <input
+                                    type="text"
+                                    defaultValue="SOP Pendampingan Anak"
+                                    className="w-full rounded-xl border border-slate-200 bg-white px-4 py-3 font-semibold text-slate-800"
+                                  />
+
+                                  <p className="mt-2 text-sm text-slate-500">
+                                    File SOP layanan klien anak
+                                  </p>
+                                </div>
+                              </div>
+
+                              {/* UPLOAD */}
+                              <div className="flex flex-col gap-3 sm:flex-row">
+                                <input
+                                  type="file"
+                                  accept=".pdf"
+                                  className="rounded-xl border border-dashed border-slate-300 bg-white px-4 py-3 text-sm"
+                                />
+
+                                <button className="rounded-xl bg-blue-50 px-5 py-3 text-sm font-bold text-blue-700">
+                                  Edit
+                                </button>
+
+                                <button className="rounded-xl bg-red-50 px-5 py-3 text-sm font-bold text-red-700">
+                                  Hapus
+                                </button>
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+
+                      {/* SOP KLIEN DEWASA */}
+                      <div className="rounded-3xl border border-slate-200 bg-white p-7">
+                        <div className="mb-6 flex flex-wrap items-center justify-between gap-4">
+                          <div>
+                            <h3 className="text-xl font-bold text-slate-900">
+                              SOP Layanan Klien Dewasa
+                            </h3>
+
+                            <p className="mt-1 text-sm text-slate-500">
+                              Upload dan kelola dokumen SOP layanan klien
+                              dewasa.
+                            </p>
+                          </div>
+
+                          <button className="rounded-2xl bg-navy px-5 py-3 text-sm font-bold text-white">
+                            + Tambah SOP Dewasa
+                          </button>
+                        </div>
+
+                        <div className="space-y-5">
+                          {[1, 2, 3].map((item) => (
+                            <div
+                              key={item}
+                              className="flex flex-col gap-5 rounded-2xl border border-slate-200 bg-slate-50 p-5 lg:flex-row lg:items-center lg:justify-between"
+                            >
+                              {/* INFO */}
+                              <div className="flex items-center gap-4">
+                                <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-indigo-100 text-2xl">
+                                  📄
+                                </div>
+
+                                <div>
+                                  <input
+                                    type="text"
+                                    defaultValue="SOP Pelaksanaan Bimbingan"
+                                    className="w-full rounded-xl border border-slate-200 bg-white px-4 py-3 font-semibold text-slate-800"
+                                  />
+
+                                  <p className="mt-2 text-sm text-slate-500">
+                                    File SOP layanan klien dewasa
+                                  </p>
+                                </div>
+                              </div>
+
+                              {/* UPLOAD */}
+                              <div className="flex flex-col gap-3 sm:flex-row">
+                                <input
+                                  type="file"
+                                  accept=".pdf"
+                                  className="rounded-xl border border-dashed border-slate-300 bg-white px-4 py-3 text-sm"
+                                />
+
+                                <button className="rounded-xl bg-blue-50 px-5 py-3 text-sm font-bold text-blue-700">
+                                  Edit
+                                </button>
+
+                                <button className="rounded-xl bg-red-50 px-5 py-3 text-sm font-bold text-red-700">
+                                  Hapus
+                                </button>
+                              </div>
+                            </div>
+                          ))}
+                        </div>
                       </div>
                     </div>
 
@@ -1672,65 +1860,9 @@ export default function Dashboard() {
                       </div>
                     </div>
 
-                    {/* FITUR */}
-                    <div className="rounded-3xl border border-slate-200 bg-white p-7">
-                      <div className="mb-6 flex items-center justify-between">
-                        <div>
-                          <h3 className="text-xl font-bold text-slate-900">
-                            Fitur Layanan
-                          </h3>
-
-                          <p className="mt-1 text-sm text-slate-500">
-                            Kelola fitur unggulan layanan.
-                          </p>
-                        </div>
-
-                        <button className="rounded-2xl bg-primary px-5 py-3 text-sm font-bold text-white">
-                          + Tambah Fitur
-                        </button>
-                      </div>
-
-                      <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-                        {[1, 2, 3].map((item) => (
-                          <div
-                            key={item}
-                            className="rounded-3xl border border-slate-200 bg-slate-50 p-6"
-                          >
-                            <div className="mb-5 flex h-16 w-16 items-center justify-center rounded-2xl bg-blue-100 text-3xl">
-                              🛡️
-                            </div>
-
-                            <div className="space-y-4">
-                              <input
-                                type="text"
-                                defaultValue="Gratis"
-                                className="w-full rounded-xl border border-slate-200 px-4 py-3"
-                              />
-
-                              <textarea
-                                rows="4"
-                                defaultValue="Seluruh layanan tidak dipungut biaya."
-                                className="w-full rounded-xl border border-slate-200 px-4 py-3"
-                              />
-
-                              <div className="flex gap-3">
-                                <button className="flex-1 rounded-xl bg-blue-50 px-4 py-3 text-sm font-bold text-blue-700">
-                                  Edit
-                                </button>
-
-                                <button className="flex-1 rounded-xl bg-red-50 px-4 py-3 text-sm font-bold text-red-700">
-                                  Hapus
-                                </button>
-                              </div>
-                            </div>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-
                     {/* BUTTON */}
                     <div className="flex flex-wrap gap-4">
-                      <button className="rounded-2xl bg-primary px-8 py-4 text-sm font-bold text-white">
+                      <button className="rounded-2xl bg-navy px-8 py-4 text-sm font-bold text-white">
                         Simpan Semua Perubahan
                       </button>
 
@@ -1741,22 +1873,304 @@ export default function Dashboard() {
                   </div>
                 )}
 
-                {/* DEFAULT */}
-                {!["Kelola Home", "Kelola Profile", "Kelola Berita"].includes(
-                  activeMenu,
-                ) && (
-                  <div className="flex h-[350px] flex-col items-center justify-center text-center">
-                    <div className="rounded-3xl bg-slate-100 p-6">
-                      <ShieldCheck size={60} className="text-slate-400" />
+                {/* PENGATURAN WEBSITE */}
+                {activeMenu === "Pengaturan Website" && (
+                  <div className="space-y-8">
+                    {/* IDENTITAS WEBSITE */}
+                    <div className="rounded-3xl border border-slate-200 bg-white p-7">
+                      <div className="mb-8">
+                        <h3 className="text-xl font-bold text-slate-900">
+                          Identitas Website
+                        </h3>
+
+                        <p className="mt-1 text-sm text-slate-500">
+                          Informasi utama website dan instansi.
+                        </p>
+                      </div>
+
+                      <div className="space-y-6">
+                        <div>
+                          <label className="mb-3 block text-sm font-bold text-slate-700">
+                            Nama Website
+                          </label>
+
+                          <input
+                            type="text"
+                            defaultValue="Bapas Kelas I Mataram"
+                            className="w-full rounded-2xl border border-slate-200 px-5 py-4 outline-none focus:border-primary"
+                          />
+                        </div>
+
+                        <div>
+                          <label className="mb-3 block text-sm font-bold text-slate-700">
+                            Nama Instansi
+                          </label>
+
+                          <input
+                            type="text"
+                            defaultValue="Balai Pemasyarakatan Kelas I Mataram"
+                            className="w-full rounded-2xl border border-slate-200 px-5 py-4 outline-none focus:border-primary"
+                          />
+                        </div>
+
+                        <div>
+                          <label className="mb-3 block text-sm font-bold text-slate-700">
+                            Deskripsi Website
+                          </label>
+
+                          <textarea
+                            rows="5"
+                            defaultValue="Website resmi Balai Pemasyarakatan Kelas I Mataram."
+                            className="w-full rounded-2xl border border-slate-200 px-5 py-4 leading-relaxed outline-none focus:border-primary"
+                          />
+                        </div>
+
+                        <div>
+                          <label className="mb-3 block text-sm font-bold text-slate-700">
+                            Upload Logo Website
+                          </label>
+
+                          <div className="rounded-3xl border-2 border-dashed border-slate-300 bg-slate-50 p-8 text-center">
+                            <input
+                              type="file"
+                              accept="image/*"
+                              className="mx-auto block text-sm text-slate-500"
+                            />
+
+                            <p className="mt-4 text-sm text-slate-500">
+                              Upload logo website
+                            </p>
+                          </div>
+                        </div>
+                      </div>
                     </div>
 
-                    <h3 className="mt-6 text-2xl font-bold text-slate-900">
-                      {activeMenu}
-                    </h3>
+                    {/* INFORMASI KONTAK */}
+                    <div className="rounded-3xl border border-slate-200 bg-white p-7">
+                      <div className="mb-8">
+                        <h3 className="text-xl font-bold text-slate-900">
+                          Informasi Kontak
+                        </h3>
 
-                    <p className="mt-3 max-w-md text-slate-500">
-                      Form pengelolaan untuk menu ini belum dibuat.
-                    </p>
+                        <p className="mt-1 text-sm text-slate-500">
+                          Informasi kontak resmi website.
+                        </p>
+                      </div>
+
+                      <div className="grid gap-6 md:grid-cols-2">
+                        <div>
+                          <label className="mb-3 block text-sm font-bold text-slate-700">
+                            WhatsApp Admin
+                          </label>
+
+                          <input
+                            type="text"
+                            defaultValue="6281946691939"
+                            className="w-full rounded-2xl border border-slate-200 px-5 py-4"
+                          />
+                        </div>
+
+                        <div>
+                          <label className="mb-3 block text-sm font-bold text-slate-700">
+                            Email Resmi
+                          </label>
+
+                          <input
+                            type="email"
+                            defaultValue="bapas_mataram@email.com"
+                            className="w-full rounded-2xl border border-slate-200 px-5 py-4"
+                          />
+                        </div>
+
+                        <div>
+                          <label className="mb-3 block text-sm font-bold text-slate-700">
+                            Nomor Telepon
+                          </label>
+
+                          <input
+                            type="text"
+                            defaultValue="0370-xxxxxx"
+                            className="w-full rounded-2xl border border-slate-200 px-5 py-4"
+                          />
+                        </div>
+
+                        <div>
+                          <label className="mb-3 block text-sm font-bold text-slate-700">
+                            Link Google Maps
+                          </label>
+
+                          <input
+                            type="text"
+                            placeholder="https://maps.google.com/..."
+                            className="w-full rounded-2xl border border-slate-200 px-5 py-4"
+                          />
+                        </div>
+                      </div>
+
+                      <div className="mt-6">
+                        <label className="mb-3 block text-sm font-bold text-slate-700">
+                          Alamat Kantor
+                        </label>
+
+                        <textarea
+                          rows="4"
+                          defaultValue="Jl. Langko No..."
+                          className="w-full rounded-2xl border border-slate-200 px-5 py-4"
+                        />
+                      </div>
+                    </div>
+
+                    {/* SOSIAL MEDIA */}
+                    <div className="rounded-3xl border border-slate-200 bg-white p-7">
+                      <div className="mb-8">
+                        <h3 className="text-xl font-bold text-slate-900">
+                          Sosial Media
+                        </h3>
+
+                        <p className="mt-1 text-sm text-slate-500">
+                          Kelola link sosial media website.
+                        </p>
+                      </div>
+
+                      <div className="grid gap-6 md:grid-cols-2">
+                        <input
+                          type="text"
+                          placeholder="Link Facebook"
+                          className="w-full rounded-2xl border border-slate-200 px-5 py-4"
+                        />
+
+                        <input
+                          type="text"
+                          placeholder="Link Instagram"
+                          className="w-full rounded-2xl border border-slate-200 px-5 py-4"
+                        />
+
+                        <input
+                          type="text"
+                          placeholder="Link Youtube"
+                          className="w-full rounded-2xl border border-slate-200 px-5 py-4"
+                        />
+
+                        <input
+                          type="text"
+                          placeholder="Link TikTok"
+                          className="w-full rounded-2xl border border-slate-200 px-5 py-4"
+                        />
+                      </div>
+                    </div>
+
+                    {/* WARNA WEBSITE */}
+                    <div className="rounded-3xl border border-slate-200 bg-white p-7">
+                      <div className="mb-8">
+                        <h3 className="text-xl font-bold text-slate-900">
+                          Branding Website
+                        </h3>
+
+                        <p className="mt-1 text-sm text-slate-500">
+                          Pengaturan warna dan tampilan website.
+                        </p>
+                      </div>
+
+                      <div className="grid gap-6 md:grid-cols-3">
+                        <div>
+                          <label className="mb-3 block text-sm font-bold text-slate-700">
+                            Warna Primary
+                          </label>
+
+                          <input
+                            type="color"
+                            defaultValue="#0f172a"
+                            className="h-16 w-full rounded-2xl border border-slate-200"
+                          />
+                        </div>
+
+                        <div>
+                          <label className="mb-3 block text-sm font-bold text-slate-700">
+                            Warna Secondary
+                          </label>
+
+                          <input
+                            type="color"
+                            defaultValue="#1e293b"
+                            className="h-16 w-full rounded-2xl border border-slate-200"
+                          />
+                        </div>
+
+                        <div>
+                          <label className="mb-3 block text-sm font-bold text-slate-700">
+                            Warna Button
+                          </label>
+
+                          <input
+                            type="color"
+                            defaultValue="#2563eb"
+                            className="h-16 w-full rounded-2xl border border-slate-200"
+                          />
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* KEAMANAN ADMIN */}
+                    <div className="rounded-3xl border border-slate-200 bg-white p-7">
+                      <div className="mb-8">
+                        <h3 className="text-xl font-bold text-slate-900">
+                          Keamanan Admin
+                        </h3>
+
+                        <p className="mt-1 text-sm text-slate-500">
+                          Pengaturan akun admin dashboard.
+                        </p>
+                      </div>
+
+                      <div className="space-y-6">
+                        <div>
+                          <label className="mb-3 block text-sm font-bold text-slate-700">
+                            Username Admin
+                          </label>
+
+                          <input
+                            type="text"
+                            defaultValue="admin"
+                            className="w-full rounded-2xl border border-slate-200 px-5 py-4"
+                          />
+                        </div>
+
+                        <div>
+                          <label className="mb-3 block text-sm font-bold text-slate-700">
+                            Password Baru
+                          </label>
+
+                          <input
+                            type="password"
+                            placeholder="Masukkan password baru"
+                            className="w-full rounded-2xl border border-slate-200 px-5 py-4"
+                          />
+                        </div>
+
+                        <div>
+                          <label className="mb-3 block text-sm font-bold text-slate-700">
+                            Konfirmasi Password
+                          </label>
+
+                          <input
+                            type="password"
+                            placeholder="Konfirmasi password baru"
+                            className="w-full rounded-2xl border border-slate-200 px-5 py-4"
+                          />
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* BUTTON */}
+                    <div className="flex flex-wrap gap-4">
+                      <button className="rounded-2xl bg-navy px-8 py-4 text-sm font-bold text-white transition hover:opacity-90">
+                        Simpan Pengaturan
+                      </button>
+
+                      <button className="rounded-2xl border border-slate-300 bg-white px-8 py-4 text-sm font-bold text-slate-700 transition hover:bg-slate-100">
+                        Reset
+                      </button>
+                    </div>
                   </div>
                 )}
               </div>

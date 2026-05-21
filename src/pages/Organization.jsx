@@ -1,4 +1,5 @@
 import React from "react";
+import { motion } from "framer-motion";
 import { Building, UserRound, Users } from "../components/ui/Icons";
 
 // IMPORT IMAGE
@@ -16,6 +17,18 @@ import Kaurkeuangan from "../assets/images/pegawai/kaurkeuangan.png";
 import Kaurpegawai from "../assets/images/pegawai/kaurpegawai.png";
 import Kaurumum from "../assets/images/pegawai/kaurumum.png";
 
+const fadeUp = {
+  hidden: { opacity: 0, y: 40 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.7,
+      ease: "easeOut",
+    },
+  },
+};
+
 export default function Organization() {
   const kabapas = {
     nama: "ARIMIN, Bc.IP., S.Pd.",
@@ -26,6 +39,7 @@ export default function Organization() {
       "Memimpin berbagai program pembimbingan dan pelayanan klien pemasyarakatan.",
     image: Kabapas,
   };
+
   const pejabat = [
     {
       nama: "I MADE KERTAYASA, S.Sos.",
@@ -116,63 +130,145 @@ export default function Organization() {
   return (
     <main className="min-h-screen bg-slate-50 font-sans">
       {/* HERO */}
-      <section className="bg-navy px-4 py-10 text-white sm:px-6 lg:px-8 rounded-3xl">
-        <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-2 lg:items-center">
-          <div>
-            <h1 className="mb-4 text-3xl font-bold leading-tight md:text-5xl">
-              Kepala Bapas Kelas I Mataram
-            </h1>
+      <motion.section
+        variants={fadeUp}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true }}
+        className="bg-navy rounded-3xl px-4 py-10 text-white sm:px-6 lg:px-8"
+      >
+        <motion.h1
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7 }}
+          viewport={{ once: true }}
+          className="mb-4 grid-span-full text-3xl font-bold leading-tight md:text-5xl"
+        >
+          Kepala Balai Pemasyarakatan Kelas I Mataram
+        </motion.h1>
 
+        <div className="mx-auto grid max-w-7xl lg:gap-10 lg:grid-cols-2 lg:items-center">
+          <motion.div
+            initial={{ opacity: 0, x: -40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.7 }}
+            viewport={{ once: true }}
+          >
             <p className="mb-6 max-w-2xl leading-relaxed text-blue-100">
-              Profil pimpinan Bapas Kelas I Mataram yang memimpin pelaksanaan
-              tugas, fungsi, pembimbingan, pendampingan, pengawasan, dan
-              pelayanan pemasyarakatan.
+              Profil pimpinan Balai Pemasyarakatan Kelas I Mataram yang memimpin
+              pelaksanaan tugas, fungsi, pembimbingan, pendampingan, pengawasan,
+              dan pelayanan pemasyarakatan.
             </p>
 
-            <div className="mb-6 rounded-2xl bg-white/10 p-5 backdrop-blur">
-              <h2 className="mb-2 text-2xl font-bold text-white">Pendidikan</h2>
+            <div className="mb-6 rounded-3xl backdrop-blur">
+              <h2 className="mb-4 text-2xl font-bold text-white">
+                Riwayat Pendidikan
+              </h2>
 
-              <p className="text-white">
-                Sarjana Sosial dan pengalaman panjang di bidang pemasyarakatan.
-              </p>
+              <ul className="space-y-3 text-sm text-white">
+                {[
+                  {
+                    title: "S1 – Universitas Negeri Manado",
+                    desc: "Pendidikan Luar Sekolah • Sulawesi Utara",
+                  },
+                  {
+                    title: "D3 – Akademi Ilmu Pemasyarakatan (AKIP)",
+                    desc: "Ilmu Pemasyarakatan • DKI Jakarta",
+                  },
+                  {
+                    title: "SMA",
+                    desc: "Nusa Tenggara Barat",
+                  },
+                  {
+                    title: "SMPN 1 Narmada",
+                    desc: "Nusa Tenggara Barat",
+                  },
+                  {
+                    title: "SDN No 1 Narmada",
+                    desc: "Nusa Tenggara Barat",
+                  },
+                ].map((item, index) => (
+                  <motion.li
+                    key={index}
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{
+                      duration: 0.5,
+                      delay: index * 0.08,
+                    }}
+                    viewport={{ once: true }}
+                    whileHover={{ x: 5 }}
+                    className="flex items-start gap-3 rounded-2xl bg-white/10 p-3"
+                  >
+                    <span className="mt-1 h-2.5 w-2.5 rounded-full bg-yellow-400"></span>
+
+                    <div>
+                      <p className="font-semibold">{item.title}</p>
+
+                      <p className="text-xs text-blue-100">{item.desc}</p>
+                    </div>
+                  </motion.li>
+                ))}
+              </ul>
             </div>
-
-            <div className="rounded-2xl bg-white/10 p-5 backdrop-blur">
-              <h2 className="mb-2 text-2xl font-bold text-white">Pengalaman</h2>
-
-              <p className="text-white">
-                Memimpin berbagai program pembimbingan dan pelayanan klien
-                pemasyarakatan.
-              </p>
-            </div>
-          </div>
+          </motion.div>
 
           {/* FOTO UTAMA */}
-          <div className="flex justify-center lg:justify-end">
-            <div className="relative w-full max-w-md overflow-hidden rounded-3xl border border-white/10 bg-white/10 p-4 shadow-2xl">
-              <img
+          <motion.div
+            initial={{ opacity: 0, x: 40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.7 }}
+            viewport={{ once: true }}
+            className="flex justify-center lg:justify-end"
+          >
+            <motion.div
+              whileHover={{ y: -5 }}
+              transition={{ duration: 0.2 }}
+              className="relative w-full max-w-md overflow-hidden rounded-3xl border border-white/10 bg-white/10 p-4 shadow-2xl lg:mt-6"
+            >
+              <motion.img
+                whileHover={{ scale: 1.03 }}
+                transition={{ duration: 0.5 }}
                 src={kabapas.image}
                 alt={kabapas.nama}
                 className="h-[420px] w-full rounded-2xl object-cover"
               />
 
-              <div className="absolute bottom-8 left-8 right-8 rounded-2xl bg-navy/90 p-5 text-white backdrop-blur">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2 }}
+                viewport={{ once: true }}
+                className="absolute bottom-8 left-8 right-8 rounded-2xl bg-navy/90 p-5 text-white backdrop-blur"
+              >
                 <h3 className="text-xl font-bold">{kabapas.nama}</h3>
 
                 <p className="text-sm text-blue-100">{kabapas.jabatan}</p>
-              </div>
-            </div>
-          </div>
+              </motion.div>
+            </motion.div>
+          </motion.div>
         </div>
-      </section>
+      </motion.section>
 
       {/* PEJABAT */}
-      <section className="px-4 py-20 sm:px-6 lg:px-8">
+      <motion.section
+        variants={fadeUp}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true }}
+        className="px-4 py-20 sm:px-6 lg:px-8"
+      >
         <div className="mx-auto max-w-7xl">
           <div className="mb-10">
-            <h2 className="mb-3 text-3xl font-bold text-slate-900">
+            <motion.h2
+              initial={{ opacity: 0, y: 15 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+              className="mb-3 text-3xl font-bold text-slate-900"
+            >
               Pejabat Struktural
-            </h2>
+            </motion.h2>
 
             <p className="max-w-2xl text-slate-600">
               Informasi pejabat struktural Bapas Kelas I Mataram.
@@ -181,12 +277,25 @@ export default function Organization() {
 
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {pejabat.map((item, index) => (
-              <div
+              <motion.div
                 key={index}
-                className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-xl"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{
+                  duration: 0.5,
+                  delay: index * 0.05,
+                }}
+                viewport={{ once: true }}
+                whileHover={{
+                  y: -6,
+                  transition: { duration: 0.2 },
+                }}
+                className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm"
               >
-                <div className="h-56 bg-slate-100">
-                  <img
+                <div className="h-56 overflow-hidden bg-slate-100">
+                  <motion.img
+                    whileHover={{ scale: 1.05 }}
+                    transition={{ duration: 0.4 }}
                     src={item.image}
                     alt={item.nama}
                     className="h-full w-full object-cover"
@@ -194,10 +303,13 @@ export default function Organization() {
                 </div>
 
                 <div className="p-4">
-                  <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-blue-50 px-3 py-1 text-xs font-bold text-blue-700">
+                  <motion.div
+                    whileHover={{ scale: 1.03 }}
+                    className="mb-4 inline-flex items-center gap-2 rounded-full bg-blue-50 px-3 py-1 text-xs font-bold text-blue-700"
+                  >
                     <UserRound size={14} />
                     {item.kategori}
-                  </div>
+                  </motion.div>
 
                   <h3 className="mb-1 text-base font-bold leading-snug text-slate-900">
                     {item.nama}
@@ -211,12 +323,11 @@ export default function Organization() {
                     {item.jabatan}
                   </p>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
-      </section>
-
+      </motion.section>
     </main>
   );
 }

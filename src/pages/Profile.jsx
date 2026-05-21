@@ -2,6 +2,8 @@
 import OfficeImg from "../assets/images/home-background.jpg";
 import { Link } from "react-router-dom";
 import StrukturOrganisasiImg from "../assets/images/struktur-organisasi.png";
+import { motion } from "framer-motion";
+
 import {
   Building,
   CheckCircle,
@@ -50,15 +52,36 @@ export default function Profile() {
     "Usaha menjalin sinergi dan kolaborasi antara Kementerian Imigrasi dan Pemasyarakatan dengan pemerintah daerah serta instansi terkait melalui Griya Abhipraya Mandalika Mataram.",
   ];
 
+  const fadeUp = {
+    hidden: { opacity: 0, y: 40 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.7,
+        ease: "easeOut",
+      },
+    },
+  };
+
   return (
     <div className="min-h-screen bg-slate-50 font-sans">
-      <section
+      <motion.section
+        variants={fadeUp}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
         id="profile"
-        className="w-full px-4 py-4 sm:px-6 lg:px-8 lg:py-4 mb-20"
+        className="mb-20 w-full px-4 py-4 sm:px-6 lg:px-8 lg:py-4"
       >
         <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
-          <div>
-            <h3 className="mb-2 text-sm  font-bold uppercase tracking-wider text-amber-500">
+          <motion.div
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+          >
+            <h3 className="mb-2 text-sm font-bold uppercase tracking-wider text-amber-500">
               Tentang Bapas Mataram
             </h3>
 
@@ -105,41 +128,58 @@ export default function Profile() {
 
             <div className="grid grid-cols-2 gap-4 border-t border-slate-200 pt-8 sm:grid-cols-4">
               {stats.map((item, index) => (
-                <div key={index}>
+                <motion.div
+                  key={index}
+                  whileHover={{ y: -5 }}
+                  transition={{ duration: 0.2 }}
+                >
                   <div className="mb-1 text-2xl font-bold text-blue-700">
                     {item.value}
                   </div>
                   <div className="text-sm text-slate-500">{item.label}</div>
-                </div>
+                </motion.div>
               ))}
             </div>
-          </div>
+          </motion.div>
 
-          <div className="relative">
-            <div className="overflow-hidden rounded-2xl bg-navy p-4 text-white shadow-2xl sm:rounded-3xl sm:p-8">
-              {/* Gambar utama */}
-              <img
+          <motion.div
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            className="relative"
+          >
+            <motion.div
+              whileHover={{ scale: 1.01 }}
+              transition={{ duration: 0.3 }}
+              className="overflow-hidden rounded-2xl bg-navy p-4 text-white shadow-2xl sm:rounded-3xl sm:p-8"
+            >
+              <motion.img
+                whileHover={{ scale: 1.03 }}
+                transition={{ duration: 0.4 }}
                 src={OfficeImg}
                 alt="Kantor Bapas Kelas I Mataram"
                 className="mb-4 h-48 w-full rounded-2xl object-cover sm:mb-6 sm:h-72"
               />
 
-              {/* Grid gambar kecil */}
               <div className="grid grid-cols-2 gap-3 sm:gap-4">
-                <img
+                <motion.img
+                  whileHover={{ scale: 1.03 }}
+                  transition={{ duration: 0.4 }}
                   src={OfficeImg}
                   alt="Kantor Bapas Kelas I Mataram"
                   className="h-32 w-full rounded-xl object-cover sm:h-64 sm:rounded-2xl"
                 />
 
-                <img
+                <motion.img
+                  whileHover={{ scale: 1.03 }}
+                  transition={{ duration: 0.4 }}
                   src={OfficeImg}
                   alt="Kantor Bapas Kelas I Mataram"
                   className="h-32 w-full rounded-xl object-cover sm:h-64 sm:rounded-2xl"
                 />
               </div>
 
-              {/* Text */}
               <h4 className="mt-5 mb-2 text-xl font-bold leading-tight sm:mt-6 sm:mb-3 sm:text-2xl">
                 Kantor Bapas Kelas I Mataram
               </h4>
@@ -148,15 +188,21 @@ export default function Profile() {
                 Jalan Kokok Segara No.06, Kelurahan Kekalik Jaya, Kecamatan
                 Sekarbela, Kota Mataram, Nusa Tenggara Barat 83116.
               </p>
-            </div>
+            </motion.div>
 
-            {/* Blur background */}
             <div className="absolute -bottom-4 -left-4 -z-10 h-32 w-32 rounded-3xl bg-amber-400 opacity-50 blur-2xl sm:-bottom-6 sm:-left-6 sm:h-48 sm:w-48" />
-          </div>
+          </motion.div>
         </div>
-      </section>
+      </motion.section>
 
-      <section id="visi-misi" className="bg-navy py-10 text-white rounded-3xl">
+      <motion.section
+        variants={fadeUp}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        id="visi-misi"
+        className="rounded-3xl bg-navy py-10 text-white"
+      >
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mb-6 text-center">
             <h2 className="mb-4 text-3xl font-bold md:text-4xl">Visi & Misi</h2>
@@ -164,7 +210,11 @@ export default function Profile() {
           </div>
 
           <div className="grid gap-12 lg:grid-cols-2">
-            <div className="rounded-3xl border border-slate-700 bg-slate-800/50 p-8 md:p-12">
+            <motion.div
+              whileHover={{ y: -8 }}
+              transition={{ duration: 0.3 }}
+              className="rounded-3xl border border-slate-700 bg-slate-800/50 p-8 md:p-12"
+            >
               <div className="mb-8 flex h-16 w-16 items-center justify-center rounded-2xl border border-blue-500/30 bg-blue-600/20">
                 <Target size={32} className="text-blue-400" />
               </div>
@@ -176,9 +226,13 @@ export default function Profile() {
                 mempunyai harkat dan martabat, serta didukung oleh peningkatan
                 sumber daya petugas Bapas.”
               </p>
-            </div>
+            </motion.div>
 
-            <div className="rounded-3xl border border-slate-700 bg-slate-800/50 p-8 md:p-12">
+            <motion.div
+              whileHover={{ y: -8 }}
+              transition={{ duration: 0.3 }}
+              className="rounded-3xl border border-slate-700 bg-slate-800/50 p-8 md:p-12"
+            >
               <div className="mb-8 flex h-16 w-16 items-center justify-center rounded-2xl border border-emerald-500/30 bg-emerald-600/20">
                 <FileText size={32} className="text-emerald-400" />
               </div>
@@ -187,7 +241,11 @@ export default function Profile() {
 
               <ul className="space-y-4">
                 {misiList.map((misi, idx) => (
-                  <li key={idx} className="flex items-start">
+                  <motion.li
+                    key={idx}
+                    whileHover={{ x: 5 }}
+                    className="flex items-start"
+                  >
                     <CheckCircle
                       size={24}
                       className="mr-4 mt-0.5 shrink-0 text-emerald-400"
@@ -195,20 +253,24 @@ export default function Profile() {
                     <span className="text-lg leading-relaxed text-slate-300">
                       {misi}
                     </span>
-                  </li>
+                  </motion.li>
                 ))}
               </ul>
-            </div>
+            </motion.div>
           </div>
         </div>
-      </section>
+      </motion.section>
 
-      <section
+      <motion.section
+        variants={fadeUp}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
         id="tugas-pokok"
         className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8"
       >
         <div className="grid gap-12 lg:grid-cols-12">
-          <div className="lg:col-span-4">
+          <motion.div whileHover={{ y: -5 }} className="lg:col-span-4">
             <div className="h-full rounded-3xl border border-blue-100 bg-blue-50 p-8">
               <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-xl bg-blue-600 text-white">
                 <MapPin size={28} />
@@ -225,19 +287,20 @@ export default function Profile() {
 
               <ul className="space-y-3">
                 {wilayahKerja.map((wilayah, idx) => (
-                  <li
+                  <motion.li
                     key={idx}
+                    whileHover={{ x: 5 }}
                     className="flex items-center rounded-lg border border-slate-100 bg-white p-3 font-medium text-slate-800 shadow-sm"
                   >
                     <div className="mr-3 h-2 w-2 rounded-full bg-amber-500" />
                     {wilayah}
-                  </li>
+                  </motion.li>
                 ))}
               </ul>
             </div>
-          </div>
+          </motion.div>
 
-          <div className="lg:col-span-8">
+          <motion.div whileHover={{ y: -5 }} className="lg:col-span-8">
             <div className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm">
               <h3 className="mb-3 text-2xl font-bold text-primary">
                 Tugas Pokok
@@ -255,7 +318,11 @@ export default function Profile() {
 
               <ul className="space-y-4">
                 {fungsiBapas.map((item, index) => (
-                  <li key={index} className="flex items-start">
+                  <motion.li
+                    key={index}
+                    whileHover={{ x: 5 }}
+                    className="flex items-start"
+                  >
                     <div className="mr-4 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-blue-600 text-sm font-bold text-white">
                       {index + 1}
                     </div>
@@ -263,15 +330,22 @@ export default function Profile() {
                     <span className="leading-relaxed text-slate-700">
                       {item}
                     </span>
-                  </li>
+                  </motion.li>
                 ))}
               </ul>
             </div>
-          </div>
+          </motion.div>
         </div>
-      </section>
+      </motion.section>
 
-      <section id="program-sasaran" className="bg-white py-10 rounded-3xl">
+      <motion.section
+        variants={fadeUp}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        id="program-sasaran"
+        className="rounded-3xl bg-white py-10"
+      >
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mb-10 text-center">
             <h2 className="mb-4 text-3xl font-bold text-slate-900">
@@ -286,8 +360,10 @@ export default function Profile() {
 
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {programSasaran.map((item, index) => (
-              <div
+              <motion.div
                 key={index}
+                whileHover={{ y: -5, scale: 1.02 }}
+                transition={{ duration: 0.2 }}
                 className="flex items-start gap-3 rounded-2xl border border-slate-200 bg-slate-50 p-5"
               >
                 <ShieldCheck
@@ -297,13 +373,20 @@ export default function Profile() {
                 <span className="font-medium leading-relaxed text-slate-700">
                   {item}
                 </span>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
-      </section>
+      </motion.section>
 
-      <section id="struktur-organisasi" className="py-10 rounded-3xl">
+      <motion.section
+        variants={fadeUp}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        id="struktur-organisasi"
+        className="rounded-3xl py-10"
+      >
         <div className="mx-auto w-full">
           <div className="mb-6 text-center">
             <h2 className="mb-4 text-3xl font-bold text-slate-900 md:text-4xl">
@@ -312,23 +395,34 @@ export default function Profile() {
             <div className="mx-auto mt-6 h-1 w-24 rounded-full bg-amber-500" />
           </div>
 
-          <div className="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm">
-            <img
+          <motion.div
+            whileHover={{ y: -5 }}
+            className="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm"
+          >
+            <motion.img
+              whileHover={{ scale: 1.01 }}
+              transition={{ duration: 0.3 }}
               src={StrukturOrganisasiImg}
               alt="Struktur Organisasi Bapas Kelas I Mataram"
               className="h-auto w-full rounded-2xl object-contain"
             />
+
             <div className="my-4 flex justify-center">
-              <Link
-                to="/organization"
-                className="inline-flex items-center justify-center rounded-full bg-primary px-8 py-3 text-sm font-bold text-white shadow-md transition hover:bg-primary-hover hover:shadow-lg"
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
               >
-                Selengkapnya
-              </Link>
+                <Link
+                  to="/organization"
+                  className="inline-flex items-center justify-center rounded-full bg-primary px-8 py-3 text-sm font-bold text-white shadow-md transition hover:bg-primary-hover hover:shadow-lg"
+                >
+                  Selengkapnya
+                </Link>
+              </motion.div>
             </div>
-          </div>
+          </motion.div>
         </div>
-      </section>
+      </motion.section>
     </div>
   );
 }

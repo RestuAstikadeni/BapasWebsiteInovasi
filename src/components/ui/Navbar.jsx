@@ -3,6 +3,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { User } from "lucide-react";
 import ImipasLogo from "../../assets/images/logo-imipas.png";
 import PasLogo from "../../assets/images/logo-pas.png";
+import Digipaslogo from "../../assets/images/logo-digipas.png";
 
 export default function Navbar() {
   const location = useLocation();
@@ -25,6 +26,7 @@ export default function Navbar() {
         { title: "Tugas Pokok & Fungsi", section: "tugas-pokok" },
         { title: "Program dan Sasaran", section: "program-sasaran" },
         { title: "Struktur Organisasi", section: "struktur-organisasi" },
+        { title: "Profil Pejabat", path: "/organization" },
       ],
     },
     {
@@ -39,9 +41,8 @@ export default function Navbar() {
       title: "Layanan",
       path: "/services",
       children: [
-        { title: "Daftar Layanan", section: "services-list" },
-        { title: "Layanan Klien Anak", section: "layanan-anak" },
-        { title: "Layanan Klien Dewasa", section: "layanan-dewasa" },
+        { title: "Layanan Klien", section: "layanan-dewasa" },
+        { title: "Layanan Khusus Klien Anak", section: "layanan-anak" },
       ],
     },
     {
@@ -109,23 +110,18 @@ export default function Navbar() {
         <div className="flex min-w-0 items-center gap-3">
           <Link to="/" className="flex shrink-0 items-center gap-2">
             <img
-              src={ImipasLogo}
-              alt="Imipas Logo"
-              className="h-7 w-auto rounded-full sm:h-7"
-            />
-            <img
-              src={PasLogo}
-              alt="PAS Logo"
-              className="h-7 w-auto rounded-full sm:h-7"
+              src={Digipaslogo}
+              alt="Digipas Logo"
+              className="h-12 w-auto object-contain sm:h-14 md:h-14"
             />
           </Link>
 
-          <Link
+          {/* <Link
             to="/"
             className="truncate text-sm font-bold tracking-tight text-navy-dark sm:text-base md:text-sm"
           >
             BALAI PEMASYARAKATAN KELAS I MATARAM
-          </Link>
+          </Link> */}
         </div>
 
         {/* Desktop Menu */}
