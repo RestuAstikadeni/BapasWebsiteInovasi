@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/BapasWebsiteInovasi/static/css/main.f8413181.css",
-    "main.js": "/BapasWebsiteInovasi/static/js/main.f873c3cc.js",
+    "main.css": "/BapasWebsiteInovasi/static/css/main.29c6fced.css",
+    "main.js": "/BapasWebsiteInovasi/static/js/main.bc2d2589.js",
     "static/media/home-background.jpg": "/BapasWebsiteInovasi/static/media/home-background.0e54d6dd44df8120fa72.jpg",
     "static/media/news-52.jpg": "/BapasWebsiteInovasi/static/media/news-52.2036f676032530b8fbbe.jpg",
     "static/media/album-1.jpg": "/BapasWebsiteInovasi/static/media/album-1.cfac66eb2cf36d0caeba.jpg",
@@ -24,6 +24,7 @@
     "static/media/kasubbimanak.png": "/BapasWebsiteInovasi/static/media/kasubbimanak.43b1390ca462bd1bc2ca.png",
     "static/media/kasiklienanak.png": "/BapasWebsiteInovasi/static/media/kasiklienanak.cc3c42f763b84032bf0a.png",
     "static/media/kasubbimdewasa.png": "/BapasWebsiteInovasi/static/media/kasubbimdewasa.d14089f955c7f2d6d9ed.png",
+    "static/media/survei-kepuasan.png": "/BapasWebsiteInovasi/static/media/survei-kepuasan.6f40c57b4f799c743b19.png",
     "static/media/kaurkeuangan.png": "/BapasWebsiteInovasi/static/media/kaurkeuangan.e192abc19d2d44814445.png",
     "static/media/wajib-lapor.png": "/BapasWebsiteInovasi/static/media/wajib-lapor.3994ce407bcabdd956cb.png",
     "static/media/service-banner.jpg": "/BapasWebsiteInovasi/static/media/service-banner.fe3dddbc7acd5a22ca30.jpg",
@@ -45,13 +46,14 @@
     "static/media/news-12.jpg": "/BapasWebsiteInovasi/static/media/news-12.b16e164384b95fe86414.jpg",
     "static/media/album-8.jpg": "/BapasWebsiteInovasi/static/media/album-8.be5ff4dfd702acc89d57.jpg",
     "static/media/news-22.jpg": "/BapasWebsiteInovasi/static/media/news-22.be5ff4dfd702acc89d57.jpg",
+    "static/media/banner-form.png": "/BapasWebsiteInovasi/static/media/banner-form.779f5988e89e677399eb.png",
     "static/media/logo-digipas.png": "/BapasWebsiteInovasi/static/media/logo-digipas.779f5988e89e677399eb.png",
     "index.html": "/BapasWebsiteInovasi/index.html",
-    "main.f8413181.css.map": "/BapasWebsiteInovasi/static/css/main.f8413181.css.map",
-    "main.f873c3cc.js.map": "/BapasWebsiteInovasi/static/js/main.f873c3cc.js.map"
+    "main.29c6fced.css.map": "/BapasWebsiteInovasi/static/css/main.29c6fced.css.map",
+    "main.bc2d2589.js.map": "/BapasWebsiteInovasi/static/js/main.bc2d2589.js.map"
   },
   "entrypoints": [
-    "static/css/main.f8413181.css",
-    "static/js/main.f873c3cc.js"
+    "static/css/main.29c6fced.css",
+    "static/js/main.bc2d2589.js"
   ]
 }
