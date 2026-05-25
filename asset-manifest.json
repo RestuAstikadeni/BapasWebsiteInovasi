@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/BapasWebsiteInovasi/static/css/main.20103595.css",
-    "main.js": "/BapasWebsiteInovasi/static/js/main.845329d6.js",
+    "main.css": "/BapasWebsiteInovasi/static/css/main.aa82eabe.css",
+    "main.js": "/BapasWebsiteInovasi/static/js/main.a51d212d.js",
     "static/media/home-background.jpg": "/BapasWebsiteInovasi/static/media/home-background.0e54d6dd44df8120fa72.jpg",
     "static/media/news-52.jpg": "/BapasWebsiteInovasi/static/media/news-52.2036f676032530b8fbbe.jpg",
     "static/media/album-1.jpg": "/BapasWebsiteInovasi/static/media/album-1.cfac66eb2cf36d0caeba.jpg",
@@ -49,11 +49,11 @@
     "static/media/banner-form.png": "/BapasWebsiteInovasi/static/media/banner-form.779f5988e89e677399eb.png",
     "static/media/logo-digipas.png": "/BapasWebsiteInovasi/static/media/logo-digipas.779f5988e89e677399eb.png",
     "index.html": "/BapasWebsiteInovasi/index.html",
-    "main.20103595.css.map": "/BapasWebsiteInovasi/static/css/main.20103595.css.map",
-    "main.845329d6.js.map": "/BapasWebsiteInovasi/static/js/main.845329d6.js.map"
+    "main.aa82eabe.css.map": "/BapasWebsiteInovasi/static/css/main.aa82eabe.css.map",
+    "main.a51d212d.js.map": "/BapasWebsiteInovasi/static/js/main.a51d212d.js.map"
   },
   "entrypoints": [
-    "static/css/main.20103595.css",
-    "static/js/main.845329d6.js"
+    "static/css/main.aa82eabe.css",
+    "static/js/main.a51d212d.js"
   ]
 }
