@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { newsList } from "../data/newsData";
+import { FaFacebookF, FaWhatsapp, FaLink, FaShareAlt } from "react-icons/fa";
+import toast from "react-hot-toast";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 40 },
@@ -60,6 +62,50 @@ export default function NewsDetail() {
   const relatedNews = newsList
     .filter((item) => item.id !== news.id)
     .slice(0, 3);
+
+  // SHARE FUNCTIONS
+  const shareUrl = window.location.href;
+
+  const shareToFacebook = () => {
+    window.open(
+      `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(
+        shareUrl,
+      )}`,
+      "_blank",
+    );
+  };
+
+  const shareToWhatsApp = () => {
+    window.open(
+      `https://wa.me/?text=${encodeURIComponent(`${news.title} ${shareUrl}`)}`,
+      "_blank",
+    );
+  };
+
+  const copyLink = async () => {
+    try {
+      await navigator.clipboard.writeText(shareUrl);
+
+      toast.success("Link berita berhasil disalin!");
+    } catch (error) {
+      toast.error("Gagal menyalin link!");
+    }
+  };
+
+  const nativeShare = async () => {
+    if (navigator.share) {
+      try {
+        await navigator.share({
+          title: news.title,
+          url: shareUrl,
+        });
+      } catch (error) {
+        console.log(error);
+      }
+    } else {
+      copyLink();
+    }
+  };
 
   return (
     <main className="min-h-screen bg-slate-50">
@@ -138,6 +184,41 @@ export default function NewsDetail() {
               >
                 {news.description}
               </motion.p>
+
+              {/* SHARE BUTTONS */}
+              <div className="mt-6 flex flex-wrap items-center gap-3 border-b border-slate-200 pb-8">
+                <button
+                  onClick={shareToFacebook}
+                  className="flex items-center gap-2 rounded-full bg-blue-600 px-4 py-2 text-sm font-medium text-white transition hover:scale-105"
+                >
+                  <FaFacebookF />
+                  Facebook
+                </button>
+
+                <button
+                  onClick={shareToWhatsApp}
+                  className="flex items-center gap-2 rounded-full bg-green-500 px-4 py-2 text-sm font-medium text-white transition hover:scale-105"
+                >
+                  <FaWhatsapp />
+                  WhatsApp
+                </button>
+
+                <button
+                  onClick={copyLink}
+                  className="flex items-center gap-2 rounded-full bg-slate-800 px-4 py-2 text-sm font-medium text-white transition hover:scale-105"
+                >
+                  <FaLink />
+                  Copy Link
+                </button>
+
+                <button
+                  onClick={nativeShare}
+                  className="flex items-center gap-2 rounded-full bg-primary px-4 py-2 text-sm font-medium text-white transition hover:scale-105"
+                >
+                  <FaShareAlt />
+                  Share
+                </button>
+              </div>
 
               {/* GALERI FOTO */}
               <div className="mt-8">

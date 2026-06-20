@@ -100,6 +100,13 @@ export default function Dashboard() {
       link: "/admin/kelola-service",
     },
     {
+      title: "Form Wajib Lapor",
+      desc: "Atur form wajib lapor",
+      icon: FileText,
+      color: "bg-cyan-500",
+      link: "/admin/form-wajib-lapor",
+    },
+    {
       title: "Pengaturan Website",
       desc: "Atur tampilan dan konfigurasi",
       icon: Settings,
@@ -279,9 +286,7 @@ export default function Dashboard() {
                         key={index}
                         onClick={() => setActiveMenu(item.title)}
                         className={`group flex w-full items-center gap-4 rounded-2xl px-4 py-3 text-left transition duration-200 ${
-                          active
-                            ? "bg-navy text-white"
-                            : "hover:bg-slate-100"
+                          active ? "bg-navy text-white" : "hover:bg-slate-100"
                         }`}
                       >
                         <div
@@ -1867,6 +1872,414 @@ export default function Dashboard() {
                       </button>
 
                       <button className="rounded-2xl border border-slate-300 bg-white px-8 py-4 text-sm font-bold text-slate-700">
+                        Reset
+                      </button>
+                    </div>
+                  </div>
+                )}
+
+                {/* FORM WAJIB LAPOR */}
+                {activeMenu === "Form Wajib Lapor" && (
+                  <div className="space-y-8">
+                    {/* HEADER */}
+                    <div className="rounded-3xl border border-slate-200 bg-slate-50 p-7">
+                      <div className="flex flex-wrap items-center justify-between gap-4">
+                        <div>
+                          <h3 className="text-2xl font-bold text-slate-900">
+                            Pengaturan Form Wajib Lapor
+                          </h3>
+
+                          <p className="mt-2 text-sm text-slate-500">
+                            Kelola seluruh konfigurasi form wajib lapor online.
+                          </p>
+                        </div>
+
+                        <div className="rounded-2xl bg-emerald-100 px-4 py-2 text-sm font-bold text-emerald-700">
+                          Form Aktif
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* BANNER */}
+                    <div className="rounded-3xl border border-slate-200 bg-white p-7">
+                      <div className="mb-8">
+                        <h3 className="text-xl font-bold text-slate-900">
+                          Banner & Header Form
+                        </h3>
+
+                        <p className="mt-1 text-sm text-slate-500">
+                          Pengaturan tampilan bagian atas form wajib lapor.
+                        </p>
+                      </div>
+
+                      <div className="space-y-6">
+                        <div>
+                          <label className="mb-3 block text-sm font-bold text-slate-700">
+                            Judul Form
+                          </label>
+
+                          <input
+                            type="text"
+                            defaultValue="WAJIB LAPOR KLIEN"
+                            className="w-full rounded-2xl border border-slate-200 px-5 py-4"
+                          />
+                        </div>
+
+                        <div>
+                          <label className="mb-3 block text-sm font-bold text-slate-700">
+                            Deskripsi Form
+                          </label>
+
+                          <textarea
+                            rows="8"
+                            className="w-full rounded-2xl border border-slate-200 px-5 py-4 leading-relaxed"
+                            defaultValue={`Yth. Bapak/Ibu/Saudara/i,
+
+Formulir Wajib Lapor Online ini disediakan sebagai alternatif layanan pelaporan bagi klien pemasyarakatan yang benar-benar berhalangan hadir secara langsung ke kantor Balai Pemasyarakatan Kelas I Mataram karena kondisi tertentu yang dapat dipertanggungjawabkan.`}
+                          />
+                        </div>
+
+                        <div>
+                          <label className="mb-3 block text-sm font-bold text-slate-700">
+                            Upload Banner Form
+                          </label>
+
+                          <div className="rounded-3xl border-2 border-dashed border-slate-300 bg-slate-50 p-8 text-center">
+                            <input
+                              type="file"
+                              accept="image/*"
+                              className="mx-auto block text-sm text-slate-500"
+                            />
+
+                            <p className="mt-4 text-sm text-slate-500">
+                              Upload banner halaman wajib lapor
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* FIELD FORM */}
+                    <div className="rounded-3xl border border-slate-200 bg-white p-7">
+                      <div className="mb-8">
+                        <h3 className="text-xl font-bold text-slate-900">
+                          Pengaturan Field Form
+                        </h3>
+
+                        <p className="mt-1 text-sm text-slate-500">
+                          Pengaturan field wajib lapor sesuai form utama.
+                        </p>
+                      </div>
+
+                      <div className="space-y-5">
+                        {[
+                          {
+                            title: "Nama",
+                            type: "Text",
+                          },
+                          {
+                            title: "Alamat",
+                            type: "Textarea",
+                          },
+                          {
+                            title: "Nomor WhatsApp",
+                            type: "Number",
+                          },
+                          {
+                            title: "Tanggal Wajib Lapor",
+                            type: "Date",
+                          },
+                          {
+                            title: "Kasus",
+                            type: "Radio",
+                          },
+                          {
+                            title: "Nama PK",
+                            type: "Radio",
+                          },
+                          {
+                            title: "Nomor PK",
+                            type: "Text",
+                          },
+                          {
+                            title: "Alasan Tidak Dapat Hadir",
+                            type: "Textarea",
+                          },
+                          {
+                            title: "Lokasi GPS",
+                            type: "GPS Location",
+                          },
+                          {
+                            title: "Foto Kegiatan Klien",
+                            type: "Camera Upload",
+                          },
+                        ].map((item, index) => (
+                          <div
+                            key={index}
+                            className="rounded-2xl border border-slate-200 bg-slate-50 p-5"
+                          >
+                            <div className="grid gap-5 lg:grid-cols-12">
+                              <div className="lg:col-span-5">
+                                <label className="mb-2 block text-sm font-bold text-slate-700">
+                                  Nama Field
+                                </label>
+
+                                <input
+                                  type="text"
+                                  defaultValue={item.title}
+                                  className="w-full rounded-2xl border border-slate-200 bg-white px-4 py-3"
+                                />
+                              </div>
+
+                              <div className="lg:col-span-3">
+                                <label className="mb-2 block text-sm font-bold text-slate-700">
+                                  Tipe Input
+                                </label>
+
+                                <input
+                                  type="text"
+                                  value={item.type}
+                                  disabled
+                                  className="w-full rounded-2xl border border-slate-200 bg-slate-100 px-4 py-3 text-slate-600"
+                                />
+                              </div>
+
+                              <div className="lg:col-span-2">
+                                <label className="mb-2 block text-sm font-bold text-slate-700">
+                                  Required
+                                </label>
+
+                                <div className="flex h-[52px] items-center rounded-2xl border border-slate-200 bg-white px-4">
+                                  <input type="checkbox" defaultChecked />
+                                </div>
+                              </div>
+
+                              <div className="lg:col-span-2">
+                                <label className="mb-2 block text-sm font-bold text-slate-700">
+                                  Status
+                                </label>
+
+                                <div className="flex h-[52px] items-center rounded-2xl border border-slate-200 bg-white px-4">
+                                  <input type="checkbox" defaultChecked />
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* PENGATURAN KASUS */}
+                    <div className="rounded-3xl border border-slate-200 bg-white p-7">
+                      <div className="mb-8 flex items-center justify-between">
+                        <div>
+                          <h3 className="text-xl font-bold text-slate-900">
+                            Daftar Kasus
+                          </h3>
+
+                          <p className="mt-1 text-sm text-slate-500">
+                            Kelola pilihan kasus pada form wajib lapor.
+                          </p>
+                        </div>
+
+                        <button className="rounded-2xl bg-navy px-5 py-3 text-sm font-bold text-white">
+                          + Tambah Kasus
+                        </button>
+                      </div>
+
+                      <div className="grid gap-4 md:grid-cols-2">
+                        {[
+                          "Narkotika",
+                          "Korupsi",
+                          "Pencurian",
+                          "Penganiayaan",
+                          "ITE",
+                          "KDRT",
+                          "Teroris",
+                          "Perjudian",
+                        ].map((item, index) => (
+                          <div
+                            key={index}
+                            className="flex items-center justify-between rounded-2xl border border-slate-200 bg-slate-50 px-5 py-4"
+                          >
+                            <input
+                              type="text"
+                              defaultValue={item}
+                              className="w-full bg-transparent outline-none"
+                            />
+
+                            <button className="ml-4 rounded-xl bg-red-50 px-4 py-2 text-sm font-bold text-red-700">
+                              Hapus
+                            </button>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* PENGATURAN PK */}
+                    <div className="rounded-3xl border border-slate-200 bg-white p-7">
+                      <div className="mb-8 flex items-center justify-between">
+                        <div>
+                          <h3 className="text-xl font-bold text-slate-900">
+                            Daftar PK & Nomor WhatsApp
+                          </h3>
+
+                          <p className="mt-1 text-sm text-slate-500">
+                            Pengaturan nama PK dan nomor otomatis.
+                          </p>
+                        </div>
+
+                        <button className="rounded-2xl bg-navy px-5 py-3 text-sm font-bold text-white">
+                          + Tambah PK
+                        </button>
+                      </div>
+
+                      <div className="space-y-4">
+                        {[
+                          {
+                            nama: "ANANDA SEPTIANA LESTARI,S.Tr.Pas",
+                            nomor: "+62 859-3455-1717",
+                          },
+                          {
+                            nama: "BADRUS",
+                            nomor: "+62 819-3673-3209",
+                          },
+                          {
+                            nama: "IKA INDAYANI, SH.",
+                            nomor: "+62 817-5777-568",
+                          },
+                        ].map((item, index) => (
+                          <div
+                            key={index}
+                            className="grid gap-4 rounded-2xl border border-slate-200 bg-slate-50 p-5 lg:grid-cols-12"
+                          >
+                            <div className="lg:col-span-5">
+                              <label className="mb-2 block text-sm font-bold text-slate-700">
+                                Nama PK
+                              </label>
+
+                              <input
+                                type="text"
+                                defaultValue={item.nama}
+                                className="w-full rounded-2xl border border-slate-200 bg-white px-4 py-3"
+                              />
+                            </div>
+
+                            <div className="lg:col-span-5">
+                              <label className="mb-2 block text-sm font-bold text-slate-700">
+                                Nomor WhatsApp
+                              </label>
+
+                              <input
+                                type="text"
+                                defaultValue={item.nomor}
+                                className="w-full rounded-2xl border border-slate-200 bg-white px-4 py-3"
+                              />
+                            </div>
+
+                            <div className="lg:col-span-2">
+                              <label className="mb-2 block text-sm font-bold text-transparent">
+                                Action
+                              </label>
+
+                              <button className="w-full rounded-2xl bg-red-50 px-4 py-3 text-sm font-bold text-red-700">
+                                Hapus
+                              </button>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* GOOGLE APPS SCRIPT */}
+                    <div className="rounded-3xl border border-slate-200 bg-white p-7">
+                      <div className="mb-8">
+                        <h3 className="text-xl font-bold text-slate-900">
+                          Integrasi Google Spreadsheet
+                        </h3>
+
+                        <p className="mt-1 text-sm text-slate-500">
+                          Konfigurasi Google Apps Script dan Spreadsheet.
+                        </p>
+                      </div>
+
+                      <div className="space-y-6">
+                        <div>
+                          <label className="mb-3 block text-sm font-bold text-slate-700">
+                            URL Google Apps Script
+                          </label>
+
+                          <input
+                            type="text"
+                            defaultValue="https://script.google.com/macros/s/AKfycbxngxLle_CBejptiQXS0yzow2qmX1-Qgx4QqlVnWuL8OCI5CL7MAOYl9O5hIoZmwnxs/exec"
+                            className="w-full rounded-2xl border border-slate-200 px-5 py-4"
+                          />
+                        </div>
+
+                        <div>
+                          <label className="mb-3 block text-sm font-bold text-slate-700">
+                            Link Spreadsheet
+                          </label>
+
+                          <input
+                            type="text"
+                            placeholder="https://docs.google.com/spreadsheets/..."
+                            className="w-full rounded-2xl border border-slate-200 px-5 py-4"
+                          />
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* PENGATURAN LOKASI */}
+                    <div className="rounded-3xl border border-slate-200 bg-white p-7">
+                      <div className="mb-8">
+                        <h3 className="text-xl font-bold text-slate-900">
+                          Pengaturan Lokasi GPS
+                        </h3>
+
+                        <p className="mt-1 text-sm text-slate-500">
+                          Pengaturan fitur pengambilan lokasi otomatis.
+                        </p>
+                      </div>
+
+                      <div className="space-y-6">
+                        <label className="flex items-center justify-between rounded-2xl border border-slate-200 p-5">
+                          <div>
+                            <h4 className="font-bold text-slate-800">
+                              Aktifkan GPS Wajib
+                            </h4>
+
+                            <p className="text-sm text-slate-500">
+                              User wajib mengambil lokasi sebelum submit form
+                            </p>
+                          </div>
+
+                          <input type="checkbox" defaultChecked />
+                        </label>
+
+                        <label className="flex items-center justify-between rounded-2xl border border-slate-200 p-5">
+                          <div>
+                            <h4 className="font-bold text-slate-800">
+                              Tampilkan Link Google Maps
+                            </h4>
+
+                            <p className="text-sm text-slate-500">
+                              Menampilkan tombol buka maps
+                            </p>
+                          </div>
+
+                          <input type="checkbox" defaultChecked />
+                        </label>
+                      </div>
+                    </div>
+
+                    {/* BUTTON */}
+                    <div className="flex flex-wrap gap-4">
+                      <button className="rounded-2xl bg-navy px-8 py-4 text-sm font-bold text-white transition hover:opacity-90">
+                        Simpan Pengaturan
+                      </button>
+
+                      <button className="rounded-2xl border border-slate-300 bg-white px-8 py-4 text-sm font-bold text-slate-700 transition hover:bg-slate-100">
                         Reset
                       </button>
                     </div>

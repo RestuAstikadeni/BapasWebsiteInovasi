@@ -3,11 +3,15 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import HomeImage from "../assets/images/home-background.jpg";
 import { newsList } from "../data/newsData";
+import { FaFacebookF, FaWhatsapp, FaLink, FaShareAlt } from "react-icons/fa";
+
+import toast from "react-hot-toast";
 
 import WajibLaporImg from "../assets/images/wajib-lapor.png";
 import PermohonanIzinImg from "../assets/images/permohonan-izin.png";
 import PencabutanIntegrasiImg from "../assets/images/pencabutan-integrasi.png";
 import LaporanPengaduanImg from "../assets/images/laporan-pengaduan.png";
+import SurveiKepuasanImg from "../assets/images/survei-kepuasan.png";
 
 
 import Album1 from "../assets/images/news/news-1.jpg";
@@ -24,7 +28,12 @@ const services = [
   {
     title: "Wajib Lapor",
     image: WajibLaporImg,
-    link: "https://forms.gle/7WtrwykWPH4j3YzL8",
+    link: "/wajib-lapor",
+  },
+  {
+    title: "Survei Kepuasan",
+    image: SurveiKepuasanImg,
+    link: "https://forms.gle/xfMsp5tuYCcjFYhp6",
   },
   {
     title: "Pengaduan",
@@ -80,8 +89,16 @@ export default function Home() {
         >
           <div className="w-full max-w-3xl space-y-4 text-white">
             <div className="flex items-center gap-4">
-              <img src={LogoImipas} alt="Logo IMIPAS" className="h-10 lg:h-14 w-auto" />
-              <img src={LogoPas} alt="Logo PAS" className="h-10 lg:h-14 w-auto" />
+              <img
+                src={LogoImipas}
+                alt="Logo IMIPAS"
+                className="h-10 lg:h-14 w-auto"
+              />
+              <img
+                src={LogoPas}
+                alt="Logo PAS"
+                className="h-10 lg:h-14 w-auto"
+              />
             </div>
             <h1 className="text-xl font-bold leading-[1.2] sm:text-4xl md:text-[3rem] md:leading-[1.1]">
               Balai Pemasyarakatan
@@ -174,55 +191,134 @@ export default function Home() {
         </div>
 
         <div className="mx-auto grid max-w-7xl grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
-          {newsList.slice(0, 6).map((item, index) => (
-            <motion.article
-              key={item.id}
-              initial={{ opacity: 0, y: 35 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{
-                duration: 0.6,
-                delay: index * 0.12,
-                ease: "easeOut",
-              }}
-              className="group overflow-hidden rounded-2xl bg-white shadow-md transition duration-300 hover:-translate-y-2 hover:shadow-xl"
-            >
-              <Link to={`/news/${item.id}`} className="block">
-                <div className="h-56 w-full overflow-hidden bg-slate-100">
-                  {getNewsImage(item) ? (
-                    <img
-                      src={getNewsImage(item)}
-                      alt={item.title}
-                      className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
-                    />
-                  ) : (
-                    <div className="flex h-full w-full items-center justify-center bg-slate-200 text-sm font-medium text-slate-500">
-                      Gambar tidak tersedia
+          {newsList.slice(0, 6).map((item, index) => {
+            // SHARE FUNCTIONS
+            const shareUrl = `${window.location.origin}/news/${item.id}`;
+
+            const shareToFacebook = () => {
+              window.open(
+                `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(
+                  shareUrl,
+                )}`,
+                "_blank",
+              );
+            };
+
+            const shareToWhatsApp = () => {
+              window.open(
+                `https://wa.me/?text=${encodeURIComponent(
+                  `${item.title} ${shareUrl}`,
+                )}`,
+                "_blank",
+              );
+            };
+
+            const copyLink = async () => {
+              try {
+                await navigator.clipboard.writeText(shareUrl);
+
+                toast.success("Link berita berhasil disalin!");
+              } catch (error) {
+                toast.error("Gagal menyalin link!");
+              }
+            };
+
+            const nativeShare = async () => {
+              if (navigator.share) {
+                try {
+                  await navigator.share({
+                    title: item.title,
+                    url: shareUrl,
+                  });
+                } catch (error) {
+                  console.log(error);
+                }
+              } else {
+                copyLink();
+              }
+            };
+
+            return (
+              <motion.article
+                key={item.id}
+                initial={{ opacity: 0, y: 35 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{
+                  duration: 0.6,
+                  delay: index * 0.12,
+                  ease: "easeOut",
+                }}
+                className="group overflow-hidden rounded-2xl bg-white shadow-md transition duration-300 hover:-translate-y-2 hover:shadow-xl"
+              >
+                <Link to={`/news/${item.id}`} className="block">
+                  <div className="h-56 w-full overflow-hidden bg-slate-100">
+                    {getNewsImage(item) ? (
+                      <img
+                        src={getNewsImage(item)}
+                        alt={item.title}
+                        className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+                      />
+                    ) : (
+                      <div className="flex h-full w-full items-center justify-center bg-slate-200 text-sm font-medium text-slate-500">
+                        Gambar tidak tersedia
+                      </div>
+                    )}
+                  </div>
+
+                  <div className="p-5">
+                    <div className="mb-3 flex flex-wrap items-center gap-x-3 gap-y-1 text-xs font-medium text-primary-hover">
+                      <span>📅 {item.date}</span>
+                      <span>🗂️ {item.category}</span>
                     </div>
-                  )}
-                </div>
 
-                <div className="p-5">
-                  <div className="mb-3 flex flex-wrap items-center gap-x-3 gap-y-1 text-xs font-medium text-primary-hover">
-                    <span>📅 {item.date}</span>
-                    <span>🗂️ {item.category}</span>
+                    <h3 className="line-clamp-2 text-lg font-bold leading-snug text-primary transition group-hover:text-secondary md:text-xl">
+                      {item.title}
+                    </h3>
+
+                    <p className="mt-3 line-clamp-3 text-sm leading-relaxed text-primary-hover">
+                      {item.description}
+                    </p>
+
+                    <div className="mt-5 inline-flex text-sm font-bold text-black transition hover:text-secondary">
+                      Baca Selengkapnya...
+                    </div>
                   </div>
+                </Link>
 
-                  <h3 className="line-clamp-2 text-lg font-bold leading-snug text-primary transition group-hover:text-secondary md:text-xl">
-                    {item.title}
-                  </h3>
+                {/* SHARE BUTTONS */}
+                <div className="flex flex-wrap items-center gap-2 px-5 pb-5">
+                  <button
+                    onClick={shareToFacebook}
+                    className="rounded-full bg-blue-600 p-2 text-white transition hover:scale-110"
+                  >
+                    <FaFacebookF />
+                  </button>
 
-                  <p className="mt-3 line-clamp-3 text-sm leading-relaxed text-primary-hover">
-                    {item.description}
-                  </p>
+                  <button
+                    onClick={shareToWhatsApp}
+                    className="rounded-full bg-green-500 p-2 text-white transition hover:scale-110"
+                  >
+                    <FaWhatsapp />
+                  </button>
 
-                  <div className="mt-5 inline-flex text-sm font-bold text-black hover:text-secondary transition">
-                    Baca Selengkapnya...
-                  </div>
+                  <button
+                    onClick={copyLink}
+                    className="rounded-full bg-slate-800 p-2 text-white transition hover:scale-110"
+                  >
+                    <FaLink />
+                  </button>
+
+                  <button
+                    onClick={nativeShare}
+                    className="rounded-full bg-blue-500 p-2 text-white transition hover:scale-110"
+                  >
+                    <FaShareAlt />
+                  </button>
                 </div>
-              </Link>
-            </motion.article>
-          ))}
+              </motion.article>
+            );
+          })}
         </div>
 
         <div className="mt-10 flex justify-center">

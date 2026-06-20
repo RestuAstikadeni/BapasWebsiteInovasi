@@ -2,6 +2,8 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { newsList } from "../data/newsData";
+import { FaFacebookF, FaWhatsapp, FaLink, FaShareAlt } from "react-icons/fa";
+import toast from "react-hot-toast";
 
 const mainNews = newsList[0];
 const otherNews = newsList.slice(1);
@@ -19,6 +21,60 @@ const fadeUp = {
 };
 
 export default function News() {
+  // SHARE FUNCTIONS
+  const getShareUrl = (id) => {
+    return `${window.location.origin}/news/${id}`;
+  };
+
+  const shareToFacebook = (id) => {
+    const shareUrl = getShareUrl(id);
+
+    window.open(
+      `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(
+        shareUrl,
+      )}`,
+      "_blank",
+    );
+  };
+
+  const shareToWhatsApp = (title, id) => {
+    const shareUrl = getShareUrl(id);
+
+    window.open(
+      `https://wa.me/?text=${encodeURIComponent(`${title} ${shareUrl}`)}`,
+      "_blank",
+    );
+  };
+
+  const copyLink = async (id) => {
+    const shareUrl = getShareUrl(id);
+
+    try {
+      await navigator.clipboard.writeText(shareUrl);
+
+      toast.success("Link berita berhasil disalin!");
+    } catch (error) {
+      toast.error("Gagal menyalin link!");
+    }
+  };
+
+  const nativeShare = async (title, id) => {
+    const shareUrl = getShareUrl(id);
+
+    if (navigator.share) {
+      try {
+        await navigator.share({
+          title,
+          url: shareUrl,
+        });
+      } catch (error) {
+        console.log(error);
+      }
+    } else {
+      copyLink(id);
+    }
+  };
+
   return (
     <main className="min-h-screen w-full bg-slate-50">
       <section className="w-full py-4">
@@ -120,6 +176,41 @@ export default function News() {
               {mainNews.description}
             </motion.p>
 
+            {/* SHARE BUTTON */}
+            <div className="mt-5 flex flex-wrap items-center gap-3">
+              <button
+                onClick={() => shareToFacebook(mainNews.id)}
+                className="flex items-center gap-2 rounded-full bg-blue-600 px-4 py-2 text-sm font-medium text-white transition hover:scale-105"
+              >
+                <FaFacebookF />
+                Facebook
+              </button>
+
+              <button
+                onClick={() => shareToWhatsApp(mainNews.title, mainNews.id)}
+                className="flex items-center gap-2 rounded-full bg-green-500 px-4 py-2 text-sm font-medium text-white transition hover:scale-105"
+              >
+                <FaWhatsapp />
+                WhatsApp
+              </button>
+
+              <button
+                onClick={() => copyLink(mainNews.id)}
+                className="flex items-center gap-2 rounded-full bg-slate-800 px-4 py-2 text-sm font-medium text-white transition hover:scale-105"
+              >
+                <FaLink />
+                Copy Link
+              </button>
+
+              <button
+                onClick={() => nativeShare(mainNews.title, mainNews.id)}
+                className="flex items-center gap-2 rounded-full bg-primary px-4 py-2 text-sm font-medium text-white transition hover:scale-105"
+              >
+                <FaShareAlt />
+                Share
+              </button>
+            </div>
+
             <motion.div
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
@@ -208,6 +299,37 @@ export default function News() {
                 >
                   {item.description}
                 </motion.p>
+
+                {/* SHARE BUTTONS */}
+                <div className="mt-5 flex flex-wrap gap-2">
+                  <button
+                    onClick={() => shareToFacebook(item.id)}
+                    className="rounded-full bg-blue-600 p-2 text-white transition hover:scale-110"
+                  >
+                    <FaFacebookF />
+                  </button>
+
+                  <button
+                    onClick={() => shareToWhatsApp(item.title, item.id)}
+                    className="rounded-full bg-green-500 p-2 text-white transition hover:scale-110"
+                  >
+                    <FaWhatsapp />
+                  </button>
+
+                  <button
+                    onClick={() => copyLink(item.id)}
+                    className="rounded-full bg-slate-800 p-2 text-white transition hover:scale-110"
+                  >
+                    <FaLink />
+                  </button>
+
+                  <button
+                    onClick={() => nativeShare(item.title, item.id)}
+                    className="rounded-full bg-primary p-2 text-white transition hover:scale-110"
+                  >
+                    <FaShareAlt />
+                  </button>
+                </div>
 
                 <motion.div
                   whileHover={{ scale: 1.05 }}

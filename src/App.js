@@ -20,6 +20,7 @@ import KelolaKlienDewasa from "./pages/admin/KelolaKlienDewasa";
 import KelolaOrganization from "./pages/admin/KelolaOrganization";
 import KelolaNews from "./pages/admin/KelolaNews";
 import Settings from "./pages/admin/Settings";
+import FormWajibLapor from "./pages/FormWajibLapor";
 
 export default function App() {
   return (
@@ -40,10 +41,17 @@ export default function App() {
         <Route path="/layanan/klien-dewasa" element={<KlienDewasa />} />
         <Route path="/admin/kelola-service" element={<KelolaService />} />
         <Route path="/admin/kelola-klien-anak" element={<KelolaKlienAnak />} />
-        <Route path="/admin/kelola-klien-dewasa" element={<KelolaKlienDewasa />} />
-        <Route path="/admin/kelola-organization" element={<KelolaOrganization />} />
+        <Route
+          path="/admin/kelola-klien-dewasa"
+          element={<KelolaKlienDewasa />}
+        />
+        <Route
+          path="/admin/kelola-organization"
+          element={<KelolaOrganization />}
+        />
         <Route path="/admin/kelola-news" element={<KelolaNews />} />
         <Route path="/admin/settings" element={<Settings />} />
+        <Route path="/wajib-lapor" element={<FormWajibLapor />} />
       </Routes>
     </BaseLayout>
   );
